@@ -1,0 +1,24 @@
+{
+	"name": "ui-components",
+	"type": "module",
+	"version": "0.0.1",
+	"scripts": {
+		"dev": "astro dev",
+		"start": "astro dev",
+		"build": "astro build",
+		"preview": "astro preview",
+		"astro": "astro",
+		"format:check": "prettier --check .",
+		"format:fix": "prettier --write .",
+		"prepare": "husky"
+	},
+	"dependencies": {
+		"@astrojs/mdx": "^2.2.1",
+		"astro": "^4.5.8",
+		"astro-expressive-code": "^0.33.5"
+	},
+	"devDependencies": {
+		"prettier": "^3.2.5",
+		"prettier-plugin-astro": "^0.13.0"
+	}
+}
