@@ -1,0 +1,67 @@
+---
+import { getCollection } from 'astro:content';
+import BaseHead from '@site-components/base-head/base-head.astro';
+import { Image } from 'astro:assets';
+import SidebarList from '@site-components/side-bar-list/side-bar-list.astro';
+import ComponentsView from '@layouts/components-view/components-view.astro';
+
+const components = (await getCollection('components'))
+	.sort((a, b) => b.data.order - a.data.order)
+	.reverse();
+---
+
+<!doctype html>
+<html lang="en" data-theme="dark">
+	<BaseHead
+		title="UI Components"
+		description="A list of simple, well designer, accessible components"
+	/>
+
+	<body>
+		<ComponentsView>
+			<ul class="components-grid">
+				{
+					components.map((component) => (
+						<li class="components-grid__item">
+							<a href={`/components/${component.slug}/`}>
+								<Image
+									src={component.data.image}
+									width={600}
+									height={300}
+									alt={component.data.title}
+									format="webp"
+									loading="eager"
+								/>
+								<h4>{component.data.title}</h4>
+								<p>{component.data.description}</p>
+							</a>
+						</li>
+					))
+				}
+			</ul>
+		</ComponentsView>
+
+		<style scoped>
+			.components-grid {
+				display: grid;
+				grid-template-columns: 1fr 1fr;
+				gap: var(--spacing-lg);
+				padding: var(--spacing-xl);
+				max-width: 1200px;
+				margin: 0 auto;
+			}
+
+			.components-grid__item a {
+				text-decoration: none;
+				color: var(--color-font);
+			}
+
+			.components-grid__item img {
+				width: 100%;
+				object-fit: contain;
+				box-shadow: var(--shadow);
+				border: var(--border-sm) solid var(--border-color-default);
+			}
+		</style>
+	</body>
+</html>
