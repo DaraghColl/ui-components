@@ -1,0 +1,45 @@
+---
+import BaseHead from '@site-components/base-head/base-head.astro';
+import SidebarList from '@site-components/side-bar-list/side-bar-list.astro';
+---
+
+<!doctype html>
+<html lang="en" data-theme="dark">
+	<BaseHead
+		title="UI Components"
+		description="A list of simple, well designer, accessible components"
+	/>
+
+	<body>
+		<div class="layout">
+			<div class="layout__left-col">
+				<SidebarList />
+			</div>
+			<div class="layout__right-col">
+				<slot />
+			</div>
+		</div>
+		<style>
+			.layout {
+				display: flex;
+				gap: 1rem;
+				min-height: 100dvh;
+				padding: var(--spacing-md);
+			}
+
+			.layout__left-col {
+				width: 250px;
+				height: 100%;
+				box-shadow: var(--shadow);
+				position: fixed;
+				overflow: scroll;
+			}
+
+			.layout__right-col {
+				flex-grow: 1;
+				box-shadow: var(--shadow);
+				margin-left: 255px;
+			}
+		</style>
+	</body>
+</html>
