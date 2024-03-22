@@ -12,6 +12,21 @@ import SidebarList from '@site-components/side-bar-list/side-bar-list.astro';
 
 	<body>
 		<div class="layout">
+			<button class="layout__hamburger" aria-label="open components menu">
+				<svg
+					xmlns="http://www.w3.org/2000/svg"
+					fill="none"
+					viewBox="0 0 24 24"
+					stroke-width="1.5"
+					stroke="currentColor"
+					class="w-6 h-6"
+				>
+					<path
+						stroke-linecap="round"
+						stroke-linejoin="round"
+						d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"></path>
+				</svg>
+			</button>
 			<div class="layout__left-col">
 				<SidebarList />
 			</div>
@@ -21,24 +36,54 @@ import SidebarList from '@site-components/side-bar-list/side-bar-list.astro';
 		</div>
 		<style>
 			.layout {
-				display: flex;
-				gap: 1rem;
 				min-height: 100dvh;
 				padding: var(--spacing-md);
 			}
 
 			.layout__left-col {
-				width: 250px;
+				width: 0;
 				height: 100%;
 				box-shadow: var(--shadow);
 				position: fixed;
 				overflow: scroll;
+				transition: 0.4s ease-in-out;
 			}
 
 			.layout__right-col {
 				flex-grow: 1;
 				box-shadow: var(--shadow);
-				margin-left: 255px;
+				margin-left: 0;
+				transition: 0.4s ease-in-out;
+			}
+
+			.layout__hamburger {
+				background-color: transparent;
+				display: block;
+				position: absolute;
+				top: 2rem;
+				left: 2rem;
+				border: none;
+				transition: 0.4s ease-in-out;
+			}
+
+			.layout__hamburger svg {
+				width: 2rem;
+				height: 2rem;
+				color: var(--color-font);
+			}
+
+			@media (min-width: 768px) {
+				.layout__left-col {
+					width: 250px;
+				}
+
+				.layout__right-col {
+					margin-left: 255px;
+				}
+
+				.layout__hamburger {
+					display: none;
+				}
 			}
 		</style>
 	</body>
