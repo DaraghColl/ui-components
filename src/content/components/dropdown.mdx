@@ -2,5 +2,196 @@
 title: 'Dropdown'
 description: 'Simple accessible dropdown button component'
 image: '/component-images/dropdown.png'
-order: 1
+order: 2
 ---
+
+import Dropdown from '@ui-components/dropdown/dropdown.astro'
+
+<Dropdown />
+
+
+<div class="markdown-spacer" />
+
+
+```html wrap title="html"
+<div class="dropdown">
+	<button class="dropdown__trigger" tabindex="0">
+		Options
+		<svg fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+			<path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5"></path>
+		</svg>
+	</button>
+	<ul class="dropdown__content" role="menu">
+		<li tabindex="0" class="dropdown__item" role="menuitem">
+			Edit
+			<svg fill="none" viewBox="0 0 24 24" stroke-width="1.5">
+				<path
+					stroke-linecap="round"
+					stroke-linejoin="round"
+					stroke="currentColor"
+					d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L10.582 16.07a4.5 4.5 0 0 1-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 0 1 1.13-1.897l8.932-8.931Zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0 1 15.75 21H5.25A2.25 2.25 0 0 1 3 18.75V8.25A2.25 2.25 0 0 1 5.25 6H10"
+				></path>
+			</svg>
+		</li>
+		<li tabindex="0" class="dropdown__item" role="menuitem">
+			Save
+			<svg fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+				<path
+					stroke-linecap="round"
+					stroke-linejoin="round"
+					d="M17.593 3.322c1.1.128 1.907 1.077 1.907 2.185V21L12 17.25 4.5 21V5.507c0-1.108.806-2.057 1.907-2.185a48.507 48.507 0 0 1 11.186 0Z"
+				></path>
+			</svg>
+		</li>
+		<li tabindex="0" class="dropdown__item" role="menuitem">
+			Browse Files
+			<svg fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+				<path
+					stroke-linecap="round"
+					stroke-linejoin="round"
+					d="M3.75 9.776c.112-.017.227-.026.344-.026h15.812c.117 0 .232.009.344.026m-16.5 0a2.25 2.25 0 0 0-1.883 2.542l.857 6a2.25 2.25 0 0 0 2.227 1.932H19.05a2.25 2.25 0 0 0 2.227-1.932l.857-6a2.25 2.25 0 0 0-1.883-2.542m-16.5 0V6A2.25 2.25 0 0 1 6 3.75h3.879a1.5 1.5 0 0 1 1.06.44l2.122 2.12a1.5 1.5 0 0 0 1.06.44H18A2.25 2.25 0 0 1 20.25 9v.776"
+				></path>
+			</svg>
+		</li>
+	</ul>
+</div>
+````
+
+```css wrap title="css"
+.dropdown__trigger {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--spacing-md);
+    background-color: var(--color-bg);
+    color: var(--color-font);
+    padding: var(--spacing-md);
+    border: 1px solid var(--color-bg);
+    border-radius: var(--rounded-sm);
+    box-shadow: var(--shadow);
+    cursor: pointer;
+}
+
+.dropdown__trigger:hover {
+    background-color: var(--color-bg-darken);
+}
+
+.dropdown__trigger:focus-visible {
+    outline: 2px solid var(--color-accent);
+}
+
+.dropdown__trigger svg {
+    rotate: -90deg;
+    transition: var(--transition-short) ease-in-out;
+}
+
+.dropdown__content {
+    background-color: var(--color-bg);
+    color: var(--color-font);
+    position: absolute;
+    width: fit-content;
+    min-width: 120px;
+    padding: 0;
+    margin-top: var(--spacing-xs);
+    border-radius: var(--rounded-sm);
+    box-shadow: var(--shadow);
+    display: none;
+    list-style: none;
+	z-index: 10;
+}
+
+.dropdown[data-dropdown-state='open'] .dropdown__trigger svg {
+    rotate: 0deg;
+    transition: var(--transition-short) ease-in-out;
+}
+
+.dropdown[data-dropdown-state='open'] .dropdown__content {
+    display: block;
+    animation: show-dropdown-content 0.25s ease-in forwards;
+}
+
+.dropdown__item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--spacing-md);
+    padding: var(--spacing-md);
+    cursor: pointer;
+}
+
+.dropdown__item:first-child {
+    border-top-left-radius: var(--rounded-sm);
+    border-top-right-radius: var(--rounded-sm);
+}
+
+.dropdown__item:last-child {
+    border-bottom-left-radius: var(--rounded-sm);
+    border-bottom-right-radius: var(--rounded-sm);
+}
+
+.dropdown__item:hover {
+    background-color: var(--color-bg-darken);
+}
+
+.dropdown__item:focus-visible {
+    outline: 2px solid var(--color-accent);
+}
+
+.dropdown svg {
+    color: var(--color-font);
+    width: 1rem;
+    height: 1rem;
+}
+
+.dropdown__item svg {
+    opacity: 0;
+    animation: show-dropdown-icon 0.25s ease-in forwards;
+    animation-delay: 0.25s;
+}
+
+@keyframes show-dropdown-content {
+    0% {
+        opacity: 0;
+        transform: translateY(-2rem);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes show-dropdown-icon {
+    0% {
+        opacity: 0;
+        transform: translateY(1rem);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+````
+
+```js wrap title="js"
+const dropdown = document.querySelector('.dropdown');
+const dropdownTrigger = document.querySelector('.dropdown__trigger');
+
+function detectCloseClick() {
+    dropdown.setAttribute('data-dropdown-state', 'closed');
+    document.removeEventListener('click', detectCloseClick);
+}
+
+dropdownTrigger.addEventListener('click', () => {
+    if (dropdown.getAttribute('data-dropdown-state') === 'open') {
+        dropdown.setAttribute('data-dropdown-state', 'closed');
+    } else {
+        dropdown.setAttribute('data-dropdown-state', 'open');
+
+        setTimeout(() => {
+            document.addEventListener('click', detectCloseClick);
+        }, 10);
+    }
+});
+```

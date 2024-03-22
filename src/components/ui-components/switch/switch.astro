@@ -1,0 +1,58 @@
+<button class="switch" tabindex="0" aria-label="toggle switch">
+	<span class="switch__ball"></span>
+</button>
+
+<style>
+	.switch {
+		display: flex;
+		align-items: center;
+		justify-content: flex-start;
+		background-color: var(--color-bg);
+		width: 4rem;
+		height: 2rem;
+		padding: 0.25rem;
+		border: var(--border-sm) solid var(--border-color-default);
+		border-radius: var(--rounded-lg);
+		box-shadow: var(--shadow);
+		cursor: pointer;
+	}
+
+	.switch:focus-visible {
+		outline: 2px solid var(--color-accent);
+	}
+
+	.switch:disabled {
+		background-color: var(--color-font-secondary);
+	}
+
+	.switch:disabled .switch__ball {
+		background-color: var(--color-font);
+	}
+
+	.switch__on {
+		background-color: var(--color-accent-lighten);
+	}
+
+	.switch__ball {
+		display: block;
+		background-color: var(--color-accent);
+		width: 1.5rem;
+		height: 1.5rem;
+		border-radius: var(--rounded-full);
+		transition: var(--transition-short) ease-in;
+	}
+
+	.switch__on .switch__ball {
+		background-color: var(--color-accent);
+		transform: translateX(1.9rem);
+		transition: var(--transition-short) ease-in;
+	}
+</style>
+
+<script lang="js">
+	const switchElement = document.querySelector('.switch');
+
+	switchElement.addEventListener('click', () => {
+		switchElement.classList.toggle('switch__on');
+	});
+</script>

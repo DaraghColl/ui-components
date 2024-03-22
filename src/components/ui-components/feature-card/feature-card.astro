@@ -1,0 +1,79 @@
+<div class="feature-box">
+	<div class="feature-box__header">
+		<svg fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+			<path
+				stroke-linecap="round"
+				stroke-linejoin="round"
+				d="M7.5 14.25v2.25m3-4.5v4.5m3-6.75v6.75m3-9v9M6 20.25h12A2.25 2.25 0 0 0 20.25 18V6A2.25 2.25 0 0 0 18 3.75H6A2.25 2.25 0 0 0 3.75 6v12A2.25 2.25 0 0 0 6 20.25Z"
+			></path>
+		</svg>
+		<h4>Analytics</h4>
+	</div>
+
+	<p class="feature-box__info">Integrate analytics with CI/CD pipelines to automate development.</p>
+
+	<div class="feature-box__action">
+		<a href="#">
+			<span>Learn More</span>
+			<svg fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+				<path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"
+				></path>
+			</svg>
+		</a>
+	</div>
+</div>
+
+<style>
+	.feature-box {
+		background-color: var(--color-bg);
+		color: var(--color-font);
+		width: fit-content;
+		padding: var(--spacing-md);
+		border-radius: var(--rounded-sm);
+		box-shadow: var(--shadow);
+	}
+
+	.feature-box__header {
+		display: flex;
+		gap: var(--spacing-md);
+	}
+
+	.feature-box__header svg {
+		width: 2.5rem;
+		color: var(--color-accent);
+	}
+
+	.feature-box__info {
+		color: var(--color-font-secondary);
+	}
+
+	.feature-box__action {
+		display: flex;
+		justify-content: end;
+		align-items: center;
+		margin-top: var(--spacing-lg);
+	}
+
+	.feature-box__action a {
+		display: flex;
+		align-items: center;
+		gap: var(--spacing-sm);
+		color: inherit;
+		text-decoration: none;
+	}
+
+	.feature-box__action svg {
+		width: 1rem;
+		transition: transform var(--transition-short) ease-in-out;
+	}
+
+	.feature-box__action a:hover svg {
+		color: var(--color-accent);
+		transform: translateX(0.25rem);
+		transition: transform var(--transition-short) ease-in;
+	}
+
+	.feature-box__action a:focus-visible {
+		outline: 2px solid var(--color-accent);
+	}
+</style>

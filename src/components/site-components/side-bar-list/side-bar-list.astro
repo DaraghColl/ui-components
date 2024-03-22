@@ -1,0 +1,46 @@
+---
+import { getCollection } from 'astro:content';
+
+const components = (await getCollection('components'))
+	.sort((a, b) => b.data.order - a.data.order)
+	.reverse();
+---
+
+<div class="sidebar">
+	<h4 class="sidebar__list-title">Components</h4>
+	<ul class="sidebar__components">
+		{
+			components.map((component) => (
+				<li class="sidebar__item">
+					<a href={`/components/${component.slug}/`}>{component.data.title}</a>
+				</li>
+			))
+		}
+	</ul>
+</div>
+
+<style>
+	.sidebar {
+		color: var(--color-font);
+		padding: var(--spacing-xl) var(--spacing-md);
+	}
+
+	.sidebar__components {
+		display: flex;
+		flex-direction: column;
+		gap: var(--spacing-sm);
+		list-style: none;
+		padding: 0;
+		margin: 0;
+	}
+
+	.sidebar__item a {
+		color: var(--color-font-secondary);
+		font-size: var(--font-sm);
+		text-decoration: none;
+	}
+
+	.sidebar__item a:hover {
+		color: var(--color-font);
+	}
+</style>

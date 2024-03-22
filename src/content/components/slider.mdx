@@ -2,5 +2,62 @@
 title: 'Slider'
 description: 'Simple accessible slider component'
 image: '/component-images/slider.png'
-order: 3
+order: 0
 ---
+
+import Slider from '@ui-components/slider/slider.astro'
+
+<Slider />
+
+
+<div class="markdown-spacer" />
+
+
+```html wrap title="html"
+<div class='slider'>
+	<img
+		src='https://images.pexels.com/photos/2382681/pexels-photo-2382681.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
+		class='slider__slide'
+	/>
+	<img
+		src='https://images.pexels.com/photos/1650882/pexels-photo-1650882.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
+		class='slider__slide'
+	/>
+	<img
+		src='https://images.pexels.com/photos/1649273/pexels-photo-1649273.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
+		class='slider__slide'
+	/>
+	<img
+		src='https://images.pexels.com/photos/1650829/pexels-photo-1650829.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
+		class='slider__slide'
+	/>
+	<img
+		src='https://images.pexels.com/photos/3220828/pexels-photo-3220828.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
+		class='slider__slide'
+	/>
+</div>
+````
+
+```css wrap title="css"
+.slider {
+    display: flex;
+    height: 300px;
+    gap: var(--spacing-lg);
+    overflow: scroll;
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+}
+
+.slider::-webkit-scrollbar {
+    display: none;
+}
+
+.slider__slide {
+    width: 80%;
+    min-width: 80%;
+    border-radius: var(--rounded-sm);
+    object-fit: cover;
+    scroll-snap-align: center;
+    scroll-snap-stop: always;
+}
+````

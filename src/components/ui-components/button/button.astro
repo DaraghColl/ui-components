@@ -1,0 +1,54 @@
+<button class="button button--default">Button</button>
+<button class="button button--accent">Accent</button>
+<button class="button button--info">Info</button>
+<button class="button button--danger">Danger</button>
+<button class="button button--success">Success</button>
+<style scoped>
+	.button {
+		--button-bg: var(--color-bg);
+		--hover-color-bg: var(--color-bg-darken);
+		--focus-visible-color-bg: var(--color-bg-darken);
+		background-color: var(--button-bg);
+		color: white;
+		min-width: 100px;
+		padding: var(--spacing-md);
+		border: 2px solid var(--button-bg);
+		border-radius: var(--rounded-sm);
+		text-align: center;
+		font-size: 1rem;
+		cursor: pointer;
+	}
+
+	.button:hover {
+		background-color: var(--hover-color-bg);
+	}
+
+	.button:focus-visible {
+		outline: 2px solid var(--color-accent);
+	}
+
+	.button--default {
+		background-color: var(--button-bg);
+		color: var(--color-font);
+		border: 2px solid var(--border-color-default);
+	}
+
+	.button--accent {
+		--button-bg: var(--color-accent);
+		--hover-color-bg: var(--color-accent-darken);
+	}
+
+	.button--info {
+		--button-bg: var(--color-info);
+		--hover-color-bg: var(--color-info-darken);
+	}
+
+	.button--danger {
+		--button-bg: var(--color-danger);
+		--hover-color-bg: var(--color-danger-darken);
+	}
+	.button--success {
+		--button-bg: var(--color-success);
+		--hover-color-bg: var(--color-success-darken);
+	}
+</style>
