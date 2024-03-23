@@ -63,6 +63,7 @@
 	box-sizing: border-box;
 	padding: 0;
 	margin: 0;
+	-webkit-tap-highlight-color: transparent;
 }
 
 body {
@@ -87,6 +88,25 @@ body {
 	margin: var(--spacing-lg) 0;
 }
 
+.expressive-code .copy {
+	margin-top: -2.25rem;
+}
+
+.expressive-code .copy button {
+	width: 1.8rem !important;
+	height: 1.8rem !important;
+}
+
+.expressive-code .frame .title {
+	border: 0 !important;
+	border-radius: var(--rounded-sm) !important;
+}
+
 .markdown-spacer {
 	padding: var(--spacing-lg) 0;
+}
+
+.code-example-center {
+	display: flex;
+	justify-content: center;
 }
