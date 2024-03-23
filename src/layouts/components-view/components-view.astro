@@ -28,10 +28,9 @@ import SidebarList from '@site-components/side-bar-list/side-bar-list.astro';
 				</svg>
 			</button>
 			<div class="components-view__sidebar">
-				<div class="components-view__sidebar-content">
-					<SidebarList />
-				</div>
+				<SidebarList />
 			</div>
+			<div class="components-view-overlay"></div>
 			<div class="components-view__right-col">
 				<slot />
 			</div>
@@ -45,30 +44,34 @@ import SidebarList from '@site-components/side-bar-list/side-bar-list.astro';
 				background-color: hsla(229, 27%, 8%, 0.8);
 				position: fixed;
 				top: 0;
-				width: 100%;
+				width: 60%;
 				height: 100%;
 				box-shadow: var(--shadow);
 				overflow: scroll;
-				z-index: 10;
-				opacity: 0;
+				z-index: 15;
+				transform: translateX(-100%);
 				transition: var(--transition-medium) ease-in-out;
 			}
 
 			.components-view__sidebar[data-menu-state='open'] {
 				opacity: 1;
+				transform: translateX(0);
 				transition: var(--transition-medium) ease-in-out;
 			}
 
-			.components-view__sidebar-content {
-				height: 100%;
-				width: 60%;
-				transform: translateX(-100%);
-				transition: var(--transition-medium) ease-in-out;
+			.components-view-overlay {
+				position: absolute;
+				top: 0;
+				left: 0;
+				right: 0;
+				bottom: 0;
+				background-color: rgba(0, 0, 0, 0.8);
+				display: none;
+				z-index: 10;
 			}
 
-			.components-view__sidebar[data-menu-state='open'] .components-view__sidebar-content {
-				transform: translateX(0%);
-				transition: var(--transition-medium) ease-in-out;
+			.components-view__sidebar[data-menu-state='open'] + .components-view-overlay {
+				display: block;
 			}
 
 			.components-view__right-col {
@@ -108,6 +111,10 @@ import SidebarList from '@site-components/side-bar-list/side-bar-list.astro';
 					transform: translateX(0);
 				}
 
+				.components-view-overlay {
+					display: none !important;
+				}
+
 				.components-view__right-col {
 					margin-left: 255px;
 				}
@@ -123,7 +130,7 @@ import SidebarList from '@site-components/side-bar-list/side-bar-list.astro';
 			const hamburgerMenu = document.querySelector('.components-view__hamburger');
 
 			function detectCloseClick(event) {
-				if (event.target.classList.contains('components-view__sidebar')) {
+				if (event.target.classList.contains('components-view-overlay')) {
 					sidebar.setAttribute('data-menu-state', 'closed');
 					document.removeEventListener('click', detectCloseClick);
 				}
