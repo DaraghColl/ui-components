@@ -24,7 +24,7 @@ const components = (await getCollection('components'))
 		background-color: var(--color-bg);
 		color: var(--color-font);
 		height: 100%;
-		padding: var(--spacing-xl) var(--spacing-md);
+		padding: var(--spacing-2xl) var(--spacing-md) var(--spacing-lg) var(--spacing-lg);
 	}
 
 	.sidebar__list-title {
@@ -50,3 +50,16 @@ const components = (await getCollection('components'))
 		color: var(--color-font);
 	}
 </style>
+
+<script lang="js">
+	const locationHref = window.location.pathname;
+	const links = document.querySelectorAll('.sidebar__item a');
+
+	links.forEach((link) => {
+		const linkText = link.textContent.trim().toLowerCase().replace(/ /g, '-');
+
+		if (locationHref.includes(linkText)) {
+			link.style.color = 'white';
+		}
+	});
+</script>
