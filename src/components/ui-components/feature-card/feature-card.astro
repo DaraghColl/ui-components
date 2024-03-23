@@ -1,5 +1,5 @@
-<div class="feature-box">
-	<div class="feature-box__header">
+<div class="feature-card">
+	<div class="feature-card__header">
 		<svg fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
 			<path
 				stroke-linecap="round"
@@ -10,9 +10,11 @@
 		<h4>Analytics</h4>
 	</div>
 
-	<p class="feature-box__info">Integrate analytics with CI/CD pipelines to automate development.</p>
+	<p class="feature-card__info">
+		Integrate analytics with CI/CD pipelines to automate development.
+	</p>
 
-	<div class="feature-box__action">
+	<div class="feature-card__action">
 		<a href="#">
 			<span>Learn More</span>
 			<svg fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
@@ -24,7 +26,7 @@
 </div>
 
 <style>
-	.feature-box {
+	.feature-card {
 		background-color: var(--color-bg);
 		color: var(--color-font);
 		width: fit-content;
@@ -33,28 +35,28 @@
 		box-shadow: var(--shadow);
 	}
 
-	.feature-box__header {
+	.feature-card__header {
 		display: flex;
 		gap: var(--spacing-md);
 	}
 
-	.feature-box__header svg {
+	.feature-card__header svg {
 		width: 2.5rem;
 		color: var(--color-accent);
 	}
 
-	.feature-box__info {
+	.feature-card__info {
 		color: var(--color-font-secondary);
 	}
 
-	.feature-box__action {
+	.feature-card__action {
 		display: flex;
 		justify-content: end;
 		align-items: center;
 		margin-top: var(--spacing-lg);
 	}
 
-	.feature-box__action a {
+	.feature-card__action a {
 		display: flex;
 		align-items: center;
 		gap: var(--spacing-sm);
@@ -62,18 +64,18 @@
 		text-decoration: none;
 	}
 
-	.feature-box__action svg {
+	.feature-card__action svg {
 		width: 1rem;
 		transition: transform var(--transition-short) ease-in-out;
 	}
 
-	.feature-box__action a:hover svg {
+	.feature-card__action a:hover svg {
 		color: var(--color-accent);
 		transform: translateX(0.25rem);
 		transition: transform var(--transition-short) ease-in;
 	}
 
-	.feature-box__action a:focus-visible {
+	.feature-card__action a:focus-visible {
 		outline: 2px solid var(--color-accent);
 	}
 </style>
