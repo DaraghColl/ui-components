@@ -43,11 +43,10 @@ const components = (await getCollection('components'))
 		<style scoped>
 			.components-grid {
 				display: grid;
-				grid-template-columns: 1fr 1fr;
-				gap: var(--spacing-lg);
-				padding: var(--spacing-xl);
-				max-width: 1200px;
-				margin: 0 auto;
+				grid-template-columns: 1fr;
+				gap: var(--spacing-xl);
+				padding: var(--spacing-md);
+				margin-top: var(--spacing-xl);
 			}
 
 			.components-grid__item a {
@@ -60,6 +59,32 @@ const components = (await getCollection('components'))
 				object-fit: contain;
 				box-shadow: var(--shadow);
 				border: var(--border-sm) solid var(--border-color-default);
+				transition: var(--transition-short) ease-in;
+			}
+
+			.components-grid__item:hover img {
+				animation: img-bounce 0.5s ease-in-out forwards;
+			}
+
+			@media (min-width: 768px) {
+				.components-grid {
+					grid-template-columns: 1fr 1fr;
+					padding: var(--spacing-xl);
+					max-width: 1200px;
+					margin: 0 auto;
+				}
+			}
+
+			@keyframes img-bounce {
+				0% {
+					transform: translateY(0);
+				}
+				50% {
+					transform: translateY(-0.5rem);
+				}
+				100% {
+					transform: translateY(0);
+				}
 			}
 		</style>
 	</body>
