@@ -99,8 +99,13 @@ import SidebarList from '@site-components/side-bar-list/side-bar-list.astro';
 
 			@media (min-width: 768px) {
 				.components-view__sidebar {
+					opacity: 1;
 					width: 250px;
 					transform: translateX(0%);
+				}
+
+				.components-view__sidebar-content {
+					transform: translateX(0);
 				}
 
 				.components-view__right-col {
