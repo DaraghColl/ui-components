@@ -14,40 +14,67 @@ import Switch from '@ui-components/switch/switch.astro'
 
 
 ```html title="html"
-<button class="switch" tabindex="0" aria-label="toggle switch">
-	<span class="switch__ball"></span>
-</button>
+<label class="switch">
+	<span class="switch__name">switch</span>
+	<div class="switch__body">
+		<input type="checkbox" class="switch__checkbox" />
+		<span class="switch__ball"></span>
+	</div>
+</label>
 ````
 
 ```css title="css"
 .switch {
     display: flex;
     align-items: center;
+    gap: var(--spacing-sm);
+    width: fit-content;
+}
+
+.switch__name {
+    cursor: pointer;
+}
+
+.switch__body {
+    display: flex;
+    align-items: center;
     justify-content: flex-start;
     background-color: var(--color-bg);
     width: 4rem;
     height: 2rem;
-    padding: 0.25rem;
+    padding: var(--spacing-xs);
     border: var(--border-sm) solid var(--border-color-default);
     border-radius: var(--rounded-2xl);
     box-shadow: var(--shadow);
     cursor: pointer;
 }
 
-.switch:focus-visible {
+.switch__body:focus-visible {
     outline: 2px solid var(--color-accent);
 }
 
-.switch:disabled {
+.switch__body:disabled {
     background-color: var(--color-font-secondary);
 }
 
-.switch:disabled .switch__ball {
+.switch__body:disabled .switch__ball {
     background-color: var(--color-font);
 }
 
-.switch__on {
+.switch__body:has(input:checked) {
     background-color: var(--color-accent-lighten);
+}
+
+.switch__checkbox {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.switch__checkbox:checked + .switch__ball {
+    background-color: var(--color-accent);
+    transform: translateX(1.9rem);
+    transition: var(--transition-short) ease-in;
 }
 
 .switch__ball {
@@ -58,18 +85,4 @@ import Switch from '@ui-components/switch/switch.astro'
     border-radius: var(--rounded-full);
     transition: var(--transition-short) ease-in;
 }
-
-.switch__on .switch__ball {
-    background-color: var(--color-accent);
-    transform: translateX(1.9rem);
-    transition: var(--transition-short) ease-in;
-}
-````
-
-```js title="js"
-const switchElement = document.querySelector('.switch');
-
-switchElement.addEventListener('click', () => {
-    switchElement.classList.toggle('switch__on');
-});
 ```
