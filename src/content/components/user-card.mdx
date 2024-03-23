@@ -14,7 +14,7 @@ import UserCard from '@ui-components/user-card/user-card.astro'
 <div class="markdown-spacer" />
 
 
-```html wrap title="html"
+```html title="html"
 <div class='user-card'>
 	<img
 		src='https://images.pexels.com/photos/2379005/pexels-photo-2379005.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
@@ -28,7 +28,7 @@ import UserCard from '@ui-components/user-card/user-card.astro'
 </div>
 ````
 
-```css wrap title="css"
+```css title="css"
 .user-card {
     display: flex;
     align-items: center;
@@ -37,7 +37,7 @@ import UserCard from '@ui-components/user-card/user-card.astro'
     color: var(--color-font);
     width: fit-content;
     padding: var(--spacing-md);
-    border: 1px solid var(--color-bg);
+    border: var(--border-sm) solid var(--color-bg);
     border-radius: var(--rounded-sm);
     box-shadow: var(--shadow);
     cursor: pointer;
@@ -49,7 +49,7 @@ import UserCard from '@ui-components/user-card/user-card.astro'
     height: 3rem;
     border-radius: var(--rounded-full);
     object-fit: cover;
-    border: 5px solid var(--color-accent);
+    border: var(--border-lg) solid var(--color-accent);
     transition:
         scale var(--transition-short) ease-in-out,
         rotate var(--transition-short) ease-in-out;

@@ -13,13 +13,13 @@ import Switch from '@ui-components/switch/switch.astro'
 <div class="markdown-spacer" />
 
 
-```html wrap title="html"
+```html title="html"
 <button class="switch" tabindex="0" aria-label="toggle switch">
 	<span class="switch__ball"></span>
 </button>
 ````
 
-```css wrap title="css"
+```css title="css"
 .switch {
     display: flex;
     align-items: center;
@@ -29,7 +29,7 @@ import Switch from '@ui-components/switch/switch.astro'
     height: 2rem;
     padding: 0.25rem;
     border: var(--border-sm) solid var(--border-color-default);
-    border-radius: var(--rounded-lg);
+    border-radius: var(--rounded-2xl);
     box-shadow: var(--shadow);
     cursor: pointer;
 }
@@ -66,7 +66,7 @@ import Switch from '@ui-components/switch/switch.astro'
 }
 ````
 
-```js wrap title="js"
+```js title="js"
 const switchElement = document.querySelector('.switch');
 
 switchElement.addEventListener('click', () => {
