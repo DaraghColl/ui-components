@@ -31,12 +31,18 @@
 		left: 50%;
 		transform: translate(-50%, -50%);
 		color: white;
-		font-size: var(--font-3xl);
+		font-size: var(--font-xl);
 	}
 
 	.card-video video {
 		width: 100%;
 		border-radius: var(--rounded-md);
+	}
+
+	@media (min-width: 768px) {
+		.card-video__heading {
+			font-size: var(--font-3xl);
+		}
 	}
 </style>
 
