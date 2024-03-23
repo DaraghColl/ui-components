@@ -11,8 +11,8 @@ import SidebarList from '@site-components/side-bar-list/side-bar-list.astro';
 	/>
 
 	<body>
-		<div class="layout">
-			<button class="layout__hamburger" aria-label="open components menu">
+		<div class="components-view">
+			<button class="components-view__hamburger" aria-label="open components menu">
 				<svg
 					xmlns="http://www.w3.org/2000/svg"
 					fill="none"
@@ -27,64 +27,83 @@ import SidebarList from '@site-components/side-bar-list/side-bar-list.astro';
 						d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"></path>
 				</svg>
 			</button>
-			<div class="layout__left-col">
+			<div class="components-view__left-col">
 				<SidebarList />
 			</div>
-			<div class="layout__right-col">
+			<div class="components-view__right-col">
 				<slot />
 			</div>
 		</div>
 		<style>
-			.layout {
+			.components-view {
 				min-height: 100dvh;
-				padding: var(--spacing-md);
 			}
 
-			.layout__left-col {
-				width: 0;
+			.components-view__left-col {
+				background-color: var(--color-bg);
+				width: 60%;
 				height: 100%;
+				padding-left: var(--spacing-lg);
 				box-shadow: var(--shadow);
 				position: fixed;
 				overflow: scroll;
-				transition: 0.4s ease-in-out;
+				z-index: 10;
+				transform: translateX(-100%);
+				transition: var(--transition-medium) ease-in-out;
 			}
 
-			.layout__right-col {
+			.components-view__left-col--open {
+				transform: translateX(0%);
+				transition: var(--transition-medium) ease-in-out;
+			}
+
+			.components-view__right-col {
 				flex-grow: 1;
-				box-shadow: var(--shadow);
 				margin-left: 0;
-				transition: 0.4s ease-in-out;
+				transition: var(--transition-medium) ease-in-out;
 			}
 
-			.layout__hamburger {
+			.components-view__hamburger {
 				background-color: transparent;
 				display: block;
 				position: absolute;
-				top: 2rem;
-				left: 2rem;
+				top: 1rem;
+				left: 1rem;
 				border: none;
-				transition: 0.4s ease-in-out;
+				z-index: 20;
+				cursor: pointer;
+				transition: var(--transition-medium) ease-in-out;
 			}
 
-			.layout__hamburger svg {
+			.components-view__hamburger svg {
 				width: 2rem;
 				height: 2rem;
 				color: var(--color-font);
 			}
 
 			@media (min-width: 768px) {
-				.layout__left-col {
+				.components-view__left-col {
 					width: 250px;
+					transform: translateX(0%);
 				}
 
-				.layout__right-col {
+				.components-view__right-col {
 					margin-left: 255px;
 				}
 
-				.layout__hamburger {
+				.components-view__hamburger {
 					display: none;
 				}
 			}
 		</style>
+
+		<script>
+			const sidebar = document.querySelector('.components-view__left-col');
+			const hamburgerMenu = document.querySelector('.components-view__hamburger');
+
+			hamburgerMenu.addEventListener('click', () => {
+				sidebar.classList.toggle('components-view__left-col--open');
+			});
+		</script>
 	</body>
 </html>
