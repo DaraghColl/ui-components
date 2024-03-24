@@ -1,153 +1,77 @@
 ---
 import BaseHead from '@site-components/base-head/base-head.astro';
 import SidebarList from '@site-components/side-bar-list/side-bar-list.astro';
+import Navbar from '@site-components/navbar/navbar.astro';
 ---
 
+<!-- 
 <!doctype html>
-<html lang="en" data-theme="dark">
-	<BaseHead
-		title="UI Components"
-		description="A list of simple, well designer, accessible components"
-	/>
+<html lang="en" data-theme="dark" transition:persist> -->
+<BaseHead
+	title="UI Components"
+	description="A list of simple, well designer, accessible components"
+/>
 
-	<body>
-		<div class="components-view">
-			<button class="components-view__hamburger" aria-label="open components menu">
-				<svg
-					xmlns="http://www.w3.org/2000/svg"
-					fill="none"
-					viewBox="0 0 24 24"
-					stroke-width="1.5"
-					stroke="currentColor"
-					class="w-6 h-6"
-				>
-					<path
-						stroke-linecap="round"
-						stroke-linejoin="round"
-						d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"></path>
-				</svg>
-			</button>
-			<div class="components-view__sidebar">
-				<SidebarList />
-			</div>
-			<div class="components-view-overlay"></div>
-			<div class="components-view__right-col">
-				<slot />
-			</div>
+<body data-theme="dark">
+	<Navbar transition:persist />
+	<div class="components-view">
+		<div class="components-view__sidebar">
+			<SidebarList />
 		</div>
-		<style>
-			.components-view {
-				min-height: 100dvh;
-			}
+		<div class="components-view__right-col">
+			<slot />
+		</div>
+	</div>
+	<style>
+		.components-view {
+			min-height: 100vh;
+			padding-top: var(--spacing-xl);
+		}
 
+		.components-view__sidebar {
+			background-color: hsla(229, 27%, 8%, 0.8);
+			position: fixed;
+			top: 0;
+			width: 100%;
+			height: 100%;
+			overflow: scroll;
+			z-index: 15;
+			transform: translateX(-100%);
+			transition: var(--transition-medium) ease-in-out;
+		}
+
+		.components-view__sidebar[data-menu-state='open'] {
+			opacity: 1;
+			transform: translateX(0);
+			transition: var(--transition-medium) ease-in-out;
+		}
+
+		.components-view__right-col {
+			flex-grow: 1;
+			margin-left: 0;
+			transition: var(--transition-medium) ease-in-out;
+		}
+
+		@media (min-width: 768px) {
 			.components-view__sidebar {
-				background-color: hsla(229, 27%, 8%, 0.8);
-				position: fixed;
-				top: 0;
-				width: 60%;
-				height: 100%;
-				box-shadow: var(--shadow);
-				overflow: scroll;
-				z-index: 15;
-				transform: translateX(-100%);
-				transition: var(--transition-medium) ease-in-out;
-			}
-
-			.components-view__sidebar[data-menu-state='open'] {
 				opacity: 1;
+				width: 250px;
+				transform: translateX(0%);
+			}
+
+			.components-view__sidebar-content {
 				transform: translateX(0);
-				transition: var(--transition-medium) ease-in-out;
-			}
-
-			.components-view-overlay {
-				position: absolute;
-				top: 0;
-				left: 0;
-				right: 0;
-				bottom: 0;
-				background-color: rgba(0, 0, 0, 0.8);
-				display: none;
-				z-index: 10;
-			}
-
-			.components-view__sidebar[data-menu-state='open'] + .components-view-overlay {
-				display: block;
 			}
 
 			.components-view__right-col {
-				flex-grow: 1;
-				margin-left: 0;
-				transition: var(--transition-medium) ease-in-out;
+				margin-left: 255px;
 			}
 
 			.components-view__hamburger {
-				background-color: var(--color-bg);
-				display: block;
-				position: fixed;
-				top: 1rem;
-				left: 1.5rem;
-				padding: var(--spacing-sm);
-				border: var(--border-sm) solid var(--color-bg);
-				border-radius: var(--rounded-md);
-				z-index: 20;
-				cursor: pointer;
-				transition: var(--transition-medium) ease-in-out;
+				display: none;
 			}
-
-			.components-view__hamburger svg {
-				width: 2rem;
-				height: 2rem;
-				color: var(--color-font);
-			}
-
-			@media (min-width: 768px) {
-				.components-view__sidebar {
-					opacity: 1;
-					width: 250px;
-					transform: translateX(0%);
-				}
-
-				.components-view__sidebar-content {
-					transform: translateX(0);
-				}
-
-				.components-view-overlay {
-					display: none !important;
-				}
-
-				.components-view__right-col {
-					margin-left: 255px;
-				}
-
-				.components-view__hamburger {
-					display: none;
-				}
-			}
-		</style>
-
-		<script>
-			const sidebar = document.querySelector('.components-view__sidebar');
-			const hamburgerMenu = document.querySelector('.components-view__hamburger');
-
-			function detectCloseClick(event) {
-				if (event.target.classList.contains('components-view-overlay')) {
-					sidebar.setAttribute('data-menu-state', 'closed');
-					document.removeEventListener('click', detectCloseClick);
-				}
-			}
-
-			hamburgerMenu.addEventListener('click', () => {
-				if (sidebar.getAttribute('data-menu-state') === 'open') {
-					sidebar.setAttribute('data-menu-state', 'closed');
-					return;
-				} else {
-					sidebar.setAttribute('data-menu-state', 'open');
-
-					setTimeout(() => {
-						document.addEventListener('click', detectCloseClick);
-					}, 10);
-				}
-			});
-		</script>
-	</body>
-</html>
+		}
+	</style>
+	<!-- </body>
+</html> -->
+</body>
