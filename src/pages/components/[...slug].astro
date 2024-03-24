@@ -5,10 +5,12 @@ import ComponentsView from '@layouts/components-view/components-view.astro';
 
 export async function getStaticPaths() {
 	const components = await getCollection('components');
-	return components.map((component) => ({
-		params: { slug: component.slug },
-		props: component
-	}));
+	return components
+		.filter((component) => component.data.title !== 'Theme Toggle')
+		.map((component) => ({
+			params: { slug: component.slug },
+			props: component
+		}));
 }
 type Props = CollectionEntry<'components'>['data'];
 

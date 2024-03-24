@@ -5,6 +5,7 @@ import BaseHead from '@site-components/base-head/base-head.astro';
 import ComponentsView from '@layouts/components-view/components-view.astro';
 
 const components = (await getCollection('components'))
+	.filter((component) => component.data.title !== 'Theme Toggle')
 	.sort((a, b) => b.data.order - a.data.order)
 	.reverse();
 ---
