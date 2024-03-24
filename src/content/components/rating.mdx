@@ -1,6 +1,6 @@
 ---
 title: 'Rating'
-description: '5 star rating component with active animation'
+description: '5 star rating component with selected animation'
 image: '/component-images/rating.png'
 order: 4
 ---
@@ -100,8 +100,6 @@ import Rating from '@ui-components/rating/rating.astro'
 }
 
 .rating__star-active {
-	color: gold;
-	fill: gold;
 	animation: star-active 0.5s ease-in forwards;
 }
 
@@ -123,28 +121,30 @@ import Rating from '@ui-components/rating/rating.astro'
 
 	100% {
 		scale: 1;
+		color: gold;
+		fill: gold;
 	}
 }
 ````
 
 ```js title="js"
-const stars = document.querySelectorAll('.rating__star');
+	const stars = document.querySelectorAll('.rating__star');
 
-const removeStars = () => {
+	const removeStars = () => {
+		stars.forEach((star, index) => {
+			star.classList.remove('rating__star-active');
+		});
+	};
+
 	stars.forEach((star, index) => {
-		star.classList.remove('rating__star-active');
-	});
-};
+		star.addEventListener('click', (e) => {
+			removeStars();
 
-stars.forEach((star, index) => {
-	star.addEventListener('click', (e) => {
-		removeStars();
-
-		for (let i = 0; i <= index; i++) {
-			setTimeout(() => {
-				stars[i].classList.add('rating__star-active');
-			}, 200 * i);
-		}
+			for (let i = 0; i <= index; i++) {
+				setTimeout(() => {
+					stars[i].classList.add('rating__star-active');
+				}, 200 * i);
+			}
+		});
 	});
-});
 ```
