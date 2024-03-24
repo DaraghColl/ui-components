@@ -9,82 +9,71 @@ const components = (await getCollection('components'))
 	.reverse();
 ---
 
-<!doctype html>
-<html lang="en" data-theme="dark">
-	<BaseHead
-		title="UI Components"
-		description="A list of simple, well designer, accessible components"
-	/>
+<ComponentsView>
+	<ul class="components-grid">
+		{
+			components.map((component) => (
+				<li class="components-grid__item">
+					<a href={`/components/${component.slug}/`}>
+						<Image
+							src={component.data.image}
+							width={600}
+							height={300}
+							alt={component.data.title}
+							format="webp"
+							loading="eager"
+						/>
+						<h4>{component.data.title}</h4>
+						<p>{component.data.description}</p>
+					</a>
+				</li>
+			))
+		}
+	</ul>
+</ComponentsView>
+<style scoped>
+	.components-grid {
+		display: grid;
+		grid-template-columns: 1fr;
+		gap: var(--spacing-xl);
+		padding: var(--spacing-md);
+		margin-top: var(--spacing-2xl);
+	}
 
-	<body>
-		<ComponentsView>
-			<ul class="components-grid">
-				{
-					components.map((component) => (
-						<li class="components-grid__item">
-							<a href={`/components/${component.slug}/`}>
-								<Image
-									src={component.data.image}
-									width={600}
-									height={300}
-									alt={component.data.title}
-									format="webp"
-									loading="eager"
-								/>
-								<h4>{component.data.title}</h4>
-								<p>{component.data.description}</p>
-							</a>
-						</li>
-					))
-				}
-			</ul>
-		</ComponentsView>
+	.components-grid__item a {
+		text-decoration: none;
+		color: var(--color-font);
+	}
 
-		<style scoped>
-			.components-grid {
-				display: grid;
-				grid-template-columns: 1fr;
-				gap: var(--spacing-xl);
-				padding: var(--spacing-md);
-				margin-top: var(--spacing-2xl);
-			}
+	.components-grid__item img {
+		width: 100%;
+		object-fit: contain;
+		border: var(--border-sm) solid var(--border-color-default);
+		transition: var(--transition-short) ease-in;
+	}
 
-			.components-grid__item a {
-				text-decoration: none;
-				color: var(--color-font);
-			}
+	.components-grid__item:hover img {
+		animation: img-bounce 0.5s ease-in-out forwards;
+	}
 
-			.components-grid__item img {
-				width: 100%;
-				object-fit: contain;
-				border: var(--border-sm) solid var(--border-color-default);
-				transition: var(--transition-short) ease-in;
-			}
+	@media (min-width: 768px) {
+		.components-grid {
+			grid-template-columns: 1fr 1fr;
+			padding: var(--spacing-2xl) var(--spacing-xl);
+			max-width: 1200px;
+			margin: 0 auto;
+		}
+	}
 
-			.components-grid__item:hover img {
-				animation: img-bounce 0.5s ease-in-out forwards;
-			}
-
-			@media (min-width: 768px) {
-				.components-grid {
-					grid-template-columns: 1fr 1fr;
-					padding: var(--spacing-2xl) var(--spacing-xl);
-					max-width: 1200px;
-					margin: 0 auto;
-				}
-			}
-
-			@keyframes img-bounce {
-				0% {
-					transform: translateY(0);
-				}
-				50% {
-					transform: translateY(-0.5rem);
-				}
-				100% {
-					transform: translateY(0);
-				}
-			}
-		</style>
-	</body>
-</html>
+	@keyframes img-bounce {
+		0% {
+			transform: translateY(0);
+		}
+		50% {
+			transform: translateY(-0.5rem);
+		}
+		100% {
+			transform: translateY(0);
+		}
+	}
+</style>
