@@ -1,13 +1,81 @@
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<!-- <ViewTransitions /> -->
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+---
+import BaseHead from '@site-components/base-head/base-head.astro';
+import Navbar from '@site-components/navbar/navbar.astro';
+---
+
+<BaseHead
+	title="UI Components"
+	description="A list of simple, well designer, accessible components"
+/>
+
+<Navbar />
+
+<div class="landing">
+	<h1>UI Components</h1>
+	<h2>
+		Zero dependency, just <span class="landing__html">html</span>
+		<span class="landing__css">css</span> and
+		<span class="landing__js">javascript</span>
+	</h2>
+
+	<a href="/css-variables" class="landing__button">Get Started</a>
+</div>
+
+<style>
+	.landing {
+		padding: 0 var(--spacing-lg);
+		padding-top: calc(var(--spacing-xl) * 2);
+		color: var(--color-font);
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		height: 100dvh;
+	}
+
+	.landing h1 {
+		font-size: var(--font-xl);
+		margin-top: var(--spacing-md);
+	}
+
+	.landing__html {
+		color: #0ea5e9;
+	}
+
+	.landing__css {
+		color: #818cf8;
+	}
+
+	.landing__js {
+		color: #f472b6;
+	}
+
+	.landing__button {
+		display: flex;
+		align-items: center;
+		gap: var(--spacing-md);
+		background-color: var(--color-bg);
+		color: var(--color-font);
+		padding: var(--spacing-sm);
+		border: 1px solid var(--color-bg);
+		border-radius: var(--rounded-sm);
+		box-shadow: var(--shadow);
+		font-size: var(--font-lg);
+		cursor: pointer;
+		margin-top: var(--spacing-lg);
+		text-decoration: none;
+	}
+
+	.landing__button:hover {
+		background-color: var(--color-bg-darken);
+	}
+
+	@media (min-width: 768px) {
+		.landing {
+			padding-top: calc(var(--spacing-xl) * 4);
+		}
+
+		.landing h1 {
+			font-size: var(--font-3xl);
+		}
+	}
+</style>
