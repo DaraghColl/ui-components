@@ -1,0 +1,84 @@
+---
+title: 'User List'
+description: 'User list with hover scale animation'
+image: '/component-images/user-list.png'
+order: 4
+---
+
+import UserList from '@ui-components/user-list/user-list.astro'
+
+<div class="code-example-flex">
+    <UserList />
+</div>
+
+
+<div class="markdown-spacer" />
+
+```html title="html"
+<div class="user-list">
+	<div class="user-list__item">
+		<img
+			src="https://images.pexels.com/photos/775358/pexels-photo-775358.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+			alt="post profile image"
+			class="user-list__image"
+		/>
+	</div>
+	<div class="user-list__item">
+		<img
+			src="https://images.pexels.com/photos/2613260/pexels-photo-2613260.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+			alt="post profile image"
+			class="user-list__image"
+		/>
+	</div>
+	<div class="user-list__item">
+		<img
+			src="https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+			alt="post profile image"
+			class="user-list__image"
+		/>
+	</div>
+	<div class="user-list__item">
+		<img
+			src="https://images.pexels.com/photos/2859616/pexels-photo-2859616.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+			alt="post profile image"
+			class="user-list__image"
+		/>
+	</div>
+	<div class="user-list__item">
+		<img
+			src="https://images.pexels.com/photos/35065/homeless-man-color-poverty.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+			alt="post profile image"
+			class="user-list__image"
+		/>
+	</div>
+</div>
+````
+
+```css title="css"
+.user-list {
+    display: flex;
+}
+
+.user-list__item {
+    position: relative;
+    margin-left: -0.25rem;
+}
+
+.user-list__image {
+    max-width: 10rem;
+    max-height: 10rem;
+    width: 100%;
+    object-fit: cover;
+    border-radius: var(--rounded-md);
+    box-shadow: var(--shadow);
+    cursor: pointer;
+    transition: var(--transition-short) ease-in-out;
+}
+
+.user-list__image:hover {
+    transform: scale(1.2);
+    transition: var(--transition-short) ease-in-out;
+}
+```
+
+
