@@ -158,23 +158,25 @@
 </style>
 
 <script lang="js">
-	const dropdown = document.querySelector('.dropdown');
-	const dropdownTrigger = document.querySelector('.dropdown__trigger');
+	(function dropdownInit() {
+		const dropdown = document.querySelector('.dropdown');
+		const dropdownTrigger = document.querySelector('.dropdown__trigger');
 
-	function detectCloseClick() {
-		dropdown.setAttribute('data-dropdown-state', 'closed');
-		document.removeEventListener('click', detectCloseClick);
-	}
-
-	dropdownTrigger.addEventListener('click', () => {
-		if (dropdown.getAttribute('data-dropdown-state') === 'open') {
+		function detectCloseClick() {
 			dropdown.setAttribute('data-dropdown-state', 'closed');
-		} else {
-			dropdown.setAttribute('data-dropdown-state', 'open');
-
-			setTimeout(() => {
-				document.addEventListener('click', detectCloseClick);
-			}, 10);
+			document.removeEventListener('click', detectCloseClick);
 		}
-	});
+
+		dropdownTrigger.addEventListener('click', () => {
+			if (dropdown.getAttribute('data-dropdown-state') === 'open') {
+				dropdown.setAttribute('data-dropdown-state', 'closed');
+			} else {
+				dropdown.setAttribute('data-dropdown-state', 'open');
+
+				setTimeout(() => {
+					document.addEventListener('click', detectCloseClick);
+				}, 10);
+			}
+		});
+	})();
 </script>

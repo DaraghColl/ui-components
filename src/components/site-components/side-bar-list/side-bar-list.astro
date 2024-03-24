@@ -52,14 +52,16 @@ const components = (await getCollection('components'))
 </style>
 
 <script lang="js">
-	const locationHref = window.location.pathname;
-	const links = document.querySelectorAll('.sidebar__item a');
+	(function videoInit() {
+		const locationHref = window.location.pathname;
+		const links = document.querySelectorAll('.sidebar__item a');
 
-	links.forEach((link) => {
-		const linkText = link.textContent.trim().toLowerCase().replace(/ /g, '-');
+		links.forEach((link) => {
+			const linkText = link.textContent.trim().toLowerCase().replace(/ /g, '-');
 
-		if (locationHref.includes(linkText)) {
-			link.style.color = 'white';
-		}
-	});
+			if (locationHref.includes(linkText)) {
+				link.style.color = 'white';
+			}
+		});
+	})();
 </script>

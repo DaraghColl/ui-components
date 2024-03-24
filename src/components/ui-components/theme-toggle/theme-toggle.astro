@@ -1,11 +1,11 @@
-<button class="theme-toggle" aria-label="toggle theme">
+<button class="theme-toggle-comp" aria-label="toggle theme">
 	<svg
 		xmlns="http://www.w3.org/2000/svg"
 		fill="none"
 		viewBox="0 0 24 24"
 		stroke-width="1.5"
 		stroke="currentColor"
-		class="theme-toggle__light theme-toggle__icon-active"
+		class="theme-toggle__light-comp theme-toggle__icon-active"
 	>
 		<path
 			stroke-linecap="round"
@@ -19,7 +19,7 @@
 		viewBox="0 0 24 24"
 		stroke-width="1.5"
 		stroke="currentColor"
-		class="theme-toggle__dark"
+		class="theme-toggle__dark-comp"
 	>
 		<path
 			stroke-linecap="round"
@@ -30,14 +30,14 @@
 </button>
 
 <style>
-	.theme-toggle {
+	.theme-toggle-comp {
 		position: relative;
 		background-color: transparent;
 		border: none;
 		cursor: pointer;
 	}
 
-	.theme-toggle svg {
+	.theme-toggle-comp svg {
 		position: absolute;
 		top: 0;
 		right: 0;
@@ -45,11 +45,11 @@
 		height: 2.5rem;
 	}
 
-	.theme-toggle path {
+	.theme-toggle-comp path {
 		stroke: var(--color-font);
 	}
 
-	.theme-toggle__dark {
+	.theme-toggle__dark-comp {
 		opacity: 0;
 	}
 
@@ -85,33 +85,35 @@
 </style>
 
 <script lang="js">
-	const toggle = document.querySelector('.theme-toggle');
-	const lightIcon = document.querySelector('.theme-toggle__light');
-	const darkIcon = document.querySelector('.theme-toggle__dark');
+	(function dropdownInit() {
+		const toggle = document.querySelector('.theme-toggle-comp');
+		const lightIcon = document.querySelector('.theme-toggle__light-comp');
+		const darkIcon = document.querySelector('.theme-toggle__dark-comp');
 
-	toggle?.addEventListener('click', () => {
-		const theme = document.getElementsByTagName('html')[0].getAttribute('data-theme');
+		let theme = 'dark';
 
-		if (!theme) return;
+		toggle?.addEventListener('click', () => {
+			if (!theme) return;
 
-		if (theme === 'light') {
-			document.documentElement.setAttribute('data-theme', 'dark');
+			if (theme === 'light') {
+				theme = 'dark';
 
-			if (lightIcon.classList.contains('theme-toggle__icon-inactive')) {
-				lightIcon.classList.remove('theme-toggle__icon-inactive');
+				if (lightIcon.classList.contains('theme-toggle__icon-inactive')) {
+					lightIcon.classList.remove('theme-toggle__icon-inactive');
+				}
+
+				lightIcon.classList.add('theme-toggle__icon-active');
+				darkIcon.classList.add('theme-toggle__icon-inactive');
+			} else if (theme === 'dark') {
+				theme = 'light';
+
+				if (darkIcon.classList.contains('theme-toggle__icon-inactive')) {
+					darkIcon.classList.remove('theme-toggle__icon-inactive');
+				}
+
+				darkIcon.classList.add('theme-toggle__icon-active');
+				lightIcon.classList.add('theme-toggle__icon-inactive');
 			}
-
-			lightIcon.classList.add('theme-toggle__icon-active');
-			darkIcon.classList.add('theme-toggle__icon-inactive');
-		} else if (theme === 'dark') {
-			document.documentElement.setAttribute('data-theme', 'light');
-
-			if (darkIcon.classList.contains('theme-toggle__icon-inactive')) {
-				darkIcon.classList.remove('theme-toggle__icon-inactive');
-			}
-
-			darkIcon.classList.add('theme-toggle__icon-active');
-			lightIcon.classList.add('theme-toggle__icon-inactive');
-		}
-	});
+		});
+	})();
 </script>

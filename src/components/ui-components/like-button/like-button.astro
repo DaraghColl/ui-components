@@ -78,10 +78,12 @@
 </style>
 
 <script lang="js">
-	const button = document.querySelector('.like-button');
-	const thumbIcon = document.querySelector('.like-button__icon');
+	(function dropdownInit() {
+		const button = document.querySelector('.like-button');
+		const thumbIcon = document.querySelector('.like-button__icon');
 
-	button.addEventListener('click', () => {
-		thumbIcon.classList.toggle('like-button__liked');
-	});
+		button.addEventListener('click', () => {
+			thumbIcon.classList.toggle('like-button__liked');
+		});
+	})();
 </script>
