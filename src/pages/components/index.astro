@@ -1,7 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
-import BaseHead from '@site-components/base-head/base-head.astro';
 import { Image } from 'astro:assets';
+import BaseHead from '@site-components/base-head/base-head.astro';
 import ComponentsView from '@layouts/components-view/components-view.astro';
 
 const components = (await getCollection('components'))
@@ -46,7 +46,7 @@ const components = (await getCollection('components'))
 				grid-template-columns: 1fr;
 				gap: var(--spacing-xl);
 				padding: var(--spacing-md);
-				margin-top: var(--spacing-xl);
+				margin-top: var(--spacing-2xl);
 			}
 
 			.components-grid__item a {
@@ -68,7 +68,7 @@ const components = (await getCollection('components'))
 			@media (min-width: 768px) {
 				.components-grid {
 					grid-template-columns: 1fr 1fr;
-					padding: var(--spacing-xl);
+					padding: var(--spacing-2xl) var(--spacing-xl);
 					max-width: 1200px;
 					margin: 0 auto;
 				}
