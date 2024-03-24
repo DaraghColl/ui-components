@@ -1,0 +1,125 @@
+---
+import ThemeToggle from './theme-toggle.astro';
+---
+
+<nav class="navbar">
+	<a href="/">
+		<svg
+			xmlns="http://www.w3.org/2000/svg"
+			fill="none"
+			viewBox="0 0 24 24"
+			stroke-width="1.5"
+			stroke="currentColor"
+			class="w-6 h-6"
+		>
+			<path
+				stroke-linecap="round"
+				stroke-linejoin="round"
+				d="M3.75 6A2.25 2.25 0 0 1 6 3.75h2.25A2.25 2.25 0 0 1 10.5 6v2.25a2.25 2.25 0 0 1-2.25 2.25H6a2.25 2.25 0 0 1-2.25-2.25V6ZM3.75 15.75A2.25 2.25 0 0 1 6 13.5h2.25a2.25 2.25 0 0 1 2.25 2.25V18a2.25 2.25 0 0 1-2.25 2.25H6A2.25 2.25 0 0 1 3.75 18v-2.25ZM13.5 6a2.25 2.25 0 0 1 2.25-2.25H18A2.25 2.25 0 0 1 20.25 6v2.25A2.25 2.25 0 0 1 18 10.5h-2.25a2.25 2.25 0 0 1-2.25-2.25V6ZM13.5 15.75a2.25 2.25 0 0 1 2.25-2.25H18a2.25 2.25 0 0 1 2.25 2.25V18A2.25 2.25 0 0 1 18 20.25h-2.25A2.25 2.25 0 0 1 13.5 18v-2.25Z"
+			></path>
+		</svg></a
+	>
+	<button class="navbar__hamburger" aria-label="open components menu">
+		<svg
+			xmlns="http://www.w3.org/2000/svg"
+			fill="none"
+			viewBox="0 0 24 24"
+			stroke-width="1.5"
+			stroke="currentColor"
+			class="w-6 h-6"
+		>
+			<path
+				stroke-linecap="round"
+				stroke-linejoin="round"
+				d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"></path>
+		</svg>
+	</button>
+</nav>
+
+<style>
+	.navbar {
+		background-color: var(--color-bg);
+		display: flex;
+		justify-content: space-between;
+		position: fixed;
+		padding: var(--spacing-md);
+		width: 100%;
+		z-index: 30;
+	}
+
+	.navbar a {
+		display: none;
+	}
+
+	.navbar svg {
+		width: 2.5rem;
+		height: 2.5rem;
+		color: var(--color-font);
+	}
+
+	.navbar__hamburger {
+		background-color: var(--color-bg);
+		top: 1rem;
+		left: 1.5rem;
+		padding: var(--spacing-sm);
+		border: var(--border-sm) solid var(--color-bg);
+		border-radius: var(--rounded-md);
+		z-index: 20;
+		cursor: pointer;
+	}
+
+	.navbar__hamburger svg {
+		width: 2rem;
+		height: 2rem;
+		color: var(--color-font);
+	}
+
+	@media (min-width: 768px) {
+		.navbar {
+			justify-content: space-between;
+		}
+
+		.navbar a {
+			display: block;
+		}
+
+		.navbar__hamburger {
+			display: none;
+		}
+	}
+</style>
+
+<script>
+	const toggleMenu = () => {
+		const sidebar = document.querySelector('.components-view__sidebar');
+		const hamburgerMenu = document.querySelector('.navbar__hamburger');
+
+		function detectCloseClick(event) {
+			if (event.target.classList.contains('components-view-overlay')) {
+				sidebar.setAttribute('data-menu-state', 'closed');
+				document.removeEventListener('click', detectCloseClick);
+			}
+		}
+
+		hamburgerMenu.addEventListener('click', () => {
+			console.log('click');
+			if (sidebar.getAttribute('data-menu-state') === 'open') {
+				sidebar.setAttribute('data-menu-state', 'closed');
+				return;
+			} else {
+				sidebar.setAttribute('data-menu-state', 'open');
+				setTimeout(() => {
+					document.addEventListener('click', detectCloseClick);
+				}, 10);
+			}
+		});
+	};
+
+	(function menuToggleInit() {
+		toggleMenu();
+	})();
+
+	document.addEventListener('astro:after-swap', () => {
+		toggleMenu();
+	});
+</script>
