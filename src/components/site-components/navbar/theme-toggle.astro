@@ -1,0 +1,134 @@
+<button class="theme-toggle" aria-label="toggle theme" data-theme="dark">
+	<svg
+		xmlns="http://www.w3.org/2000/svg"
+		fill="none"
+		viewBox="0 0 24 24"
+		stroke-width="1.5"
+		stroke="currentColor"
+		class="theme-toggle__light theme-toggle__icon-active"
+	>
+		<path
+			stroke-linecap="round"
+			stroke-linejoin="round"
+			d="M12 3v2.25m6.364.386-1.591 1.591M21 12h-2.25m-.386 6.364-1.591-1.591M12 18.75V21m-4.773-4.227-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z"
+		></path>
+	</svg>
+	<svg
+		xmlns="http://www.w3.org/2000/svg"
+		fill="none"
+		viewBox="0 0 24 24"
+		stroke-width="1.5"
+		stroke="currentColor"
+		class="theme-toggle__dark"
+	>
+		<path
+			stroke-linecap="round"
+			stroke-linejoin="round"
+			d="M21.752 15.002A9.72 9.72 0 0 1 18 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 0 0 3 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 0 0 9.002-5.998Z"
+		></path>
+	</svg>
+</button>
+
+<style>
+	.theme-toggle {
+		background-color: transparent;
+		display: flex;
+		align-items: center;
+		padding: var(--spacing-sm);
+		border: none;
+		border-radius: 1rem;
+		cursor: pointer;
+	}
+
+	.theme-toggle svg {
+		width: 2rem;
+		height: 2rem;
+	}
+
+	.theme-toggle svg {
+		color: var(--color-font);
+	}
+
+	.theme-toggle__dark {
+		opacity: 0;
+	}
+
+	.theme-toggle__icon-active {
+		animation: icon-active 0.5s ease-in forwards;
+	}
+
+	.theme-toggle__icon-inactive {
+		animation: icon-inactive 0.5s ease-in forwards;
+	}
+
+	@keyframes icon-active {
+		from {
+			transform: translateX(-2rem);
+			opacity: 0;
+		}
+		to {
+			transform: translateX(0);
+			opacity: 1;
+		}
+	}
+
+	@keyframes icon-inactive {
+		from {
+			transform: translateX(0);
+			opacity: 1;
+		}
+		to {
+			transform: translateX(2rem);
+			opacity: 0;
+		}
+	}
+</style>
+
+<script is:inline>
+	const toggleTheme = () => {
+		const toggle = document.querySelector('.theme-toggle');
+		const lightIcon = document.querySelector('.theme-toggle__light');
+		const darkIcon = document.querySelector('.theme-toggle__dark');
+
+		toggle?.addEventListener('click', () => {
+			const theme = document.getElementsByTagName('html')[0].getAttribute('data-theme');
+
+			if (!theme) return;
+
+			if (theme === 'light') {
+				document.documentElement.setAttribute('data-theme', 'dark');
+				toggle.setAttribute('data-theme', 'dark');
+
+				if (lightIcon.classList.contains('theme-toggle__icon-inactive')) {
+					lightIcon.classList.remove('theme-toggle__icon-inactive');
+				}
+
+				lightIcon.classList.add('theme-toggle__icon-active');
+				darkIcon.classList.add('theme-toggle__icon-inactive');
+			} else if (theme === 'dark') {
+				document.documentElement.setAttribute('data-theme', 'light');
+				toggle.setAttribute('data-theme', 'light');
+
+				if (darkIcon.classList.contains('theme-toggle__icon-inactive')) {
+					darkIcon.classList.remove('theme-toggle__icon-inactive');
+				}
+
+				darkIcon.classList.add('theme-toggle__icon-active');
+				lightIcon.classList.add('theme-toggle__icon-inactive');
+			}
+		});
+	};
+
+	document.addEventListener('astro:page-load', () => {
+		toggleTheme();
+	});
+
+	document.addEventListener('astro:after-swap', () => {
+		const toggle = document.querySelector('.theme-toggle');
+
+		const localThemeState = toggle.getAttribute('data-theme');
+		document.getElementsByTagName('html')[0].setAttribute('data-theme', localThemeState);
+
+		toggleTheme();
+	});
+</script>

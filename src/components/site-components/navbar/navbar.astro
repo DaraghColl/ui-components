@@ -2,7 +2,7 @@
 import ThemeToggle from './theme-toggle.astro';
 ---
 
-<nav class="navbar">
+<nav class="navbar" transition:persist>
 	<a href="/">
 		<svg
 			xmlns="http://www.w3.org/2000/svg"
@@ -19,6 +19,7 @@ import ThemeToggle from './theme-toggle.astro';
 			></path>
 		</svg></a
 	>
+	<ThemeToggle transition:persist />
 	<button class="navbar__hamburger" aria-label="open components menu">
 		<svg
 			xmlns="http://www.w3.org/2000/svg"
