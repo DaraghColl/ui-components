@@ -2,7 +2,7 @@
 import { getCollection } from 'astro:content';
 import { Image } from 'astro:assets';
 import BaseHead from '@site-components/base-head/base-head.astro';
-import ComponentsView from '@layouts/documentation-view/documentation-view.astro';
+import DocumentationView from '@layouts/documentation-view/documentation-view.astro';
 
 const components = (await getCollection('components'))
 	.filter((component) => component.data.title !== 'Theme Toggle')
@@ -10,7 +10,7 @@ const components = (await getCollection('components'))
 	.reverse();
 ---
 
-<ComponentsView>
+<DocumentationView>
 	<ul class="components-grid">
 		{
 			components.map((component) => (
@@ -31,14 +31,13 @@ const components = (await getCollection('components'))
 			))
 		}
 	</ul>
-</ComponentsView>
+</DocumentationView>
+
 <style scoped>
 	.components-grid {
 		display: grid;
 		grid-template-columns: 1fr;
 		gap: var(--spacing-xl);
-		padding: var(--spacing-md);
-		margin-top: var(--spacing-2xl);
 	}
 
 	.components-grid__item a {
@@ -47,6 +46,7 @@ const components = (await getCollection('components'))
 	}
 
 	.components-grid__item img {
+		background-color: hsl(229, 27%, 8%);
 		width: 100%;
 		object-fit: contain;
 		border: var(--border-sm) solid var(--border-color-default);
@@ -60,9 +60,6 @@ const components = (await getCollection('components'))
 	@media (min-width: 768px) {
 		.components-grid {
 			grid-template-columns: 1fr 1fr;
-			padding: var(--spacing-2xl) var(--spacing-xl);
-			max-width: 1200px;
-			margin: 0 auto;
 		}
 	}
 
