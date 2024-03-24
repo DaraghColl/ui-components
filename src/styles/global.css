@@ -75,6 +75,8 @@ body {
 	letter-spacing: 0.1rem;
 	line-height: 1.8;
 	background-color: var(--color-bg);
+	max-width: 1500px;
+	margin: 0 auto;
 }
 
 [data-theme='dark'] body {
@@ -128,4 +130,9 @@ body {
 .code-example-container {
 	max-width: 700px;
 	margin: 0 auto;
+}
+
+::marker {
+	content: '';
+	margin-right: 1ch;
 }
