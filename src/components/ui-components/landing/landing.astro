@@ -1,21 +1,19 @@
 <div class="landing">
 	<div class="landing__content">
-		<h1 class="landing__heading">Your Company</h1>
+		<h1 class="landing__heading">Explore Donegal</h1>
 		<p class="landing__description">
-			Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos, facere perferendis a
-			dignissimos quae.
+			See all the sites in this beatiful county - Errigal, Slieve League, Glenveagh National Park
+			and more
 		</p>
-		<button class="landing__button">Download Now</button>
+		<button class="landing__button">See More</button>
 	</div>
-	<img
-		src="https://images.pexels.com/photos/1548111/pexels-photo-1548111.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
-		class="landing__image"
-	/>
+	<img src="/donegal.jpg" class="landing__image" />
 </div>
 
 <style>
 	.landing {
 		display: flex;
+		flex-direction: column-reverse;
 		align-items: center;
 		gap: var(--spacing-lg);
 	}
@@ -23,8 +21,8 @@
 	.landing__content {
 		display: flex;
 		flex-direction: column;
-		gap: var(--spacing-md);
-		width: 50%;
+		gap: var(--spacing-lg);
+		width: 100%;
 	}
 
 	.landing__description {
@@ -42,6 +40,7 @@
 		border: var(--border-sm) solid var(--color-accent);
 		border-radius: var(--rounded-sm);
 		box-shadow: var(--shadow);
+		font-size: var(--font-md);
 		cursor: pointer;
 	}
 
@@ -54,8 +53,22 @@
 	}
 
 	.landing__image {
-		width: 50%;
+		width: 100%;
 		object-fit: cover;
 		border-radius: var(--rounded-md);
+	}
+
+	@media (min-width: 768px) {
+		.landing {
+			flex-direction: row;
+		}
+
+		.landing__content {
+			width: 50%;
+		}
+
+		.landing__image {
+			width: 50%;
+		}
 	}
 </style>
