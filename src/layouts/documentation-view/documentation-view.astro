@@ -10,21 +10,23 @@ import Navbar from '@site-components/navbar/navbar.astro';
 />
 
 <Navbar />
-<div class="components-view">
-	<div class="components-view__sidebar">
+<div class="documentation-view">
+	<div class="documentation-view__sidebar">
 		<SidebarList />
 	</div>
-	<div class="components-view__right-col">
-		<slot />
+	<div class="documentation-view__right-col">
+		<div class="documentation-view__content">
+			<slot />
+		</div>
 	</div>
 </div>
 <style>
-	.components-view {
+	.documentation-view {
 		min-height: 100vh;
 		padding-top: var(--spacing-xl);
 	}
 
-	.components-view__sidebar {
+	.documentation-view__sidebar {
 		background-color: hsla(229, 27%, 8%, 0.8);
 		position: fixed;
 		top: 0;
@@ -36,30 +38,37 @@ import Navbar from '@site-components/navbar/navbar.astro';
 		transition: var(--transition-medium) ease-in-out;
 	}
 
-	.components-view__sidebar[data-menu-state='open'] {
+	.documentation-view__sidebar[data-menu-state='open'] {
 		opacity: 1;
 		transform: translateX(0);
 		transition: var(--transition-medium) ease-in-out;
 	}
 
-	.components-view__right-col {
+	.documentation-view__right-col {
 		flex-grow: 1;
 		margin-left: 0;
 		transition: var(--transition-medium) ease-in-out;
 	}
 
+	.documentation-view__content {
+		color: var(--color-font);
+		padding: var(--spacing-xl) var(--spacing-md);
+		max-width: 999px;
+		margin: 0 auto;
+	}
+
 	@media (min-width: 768px) {
-		.components-view__sidebar {
+		.documentation-view__sidebar {
 			opacity: 1;
 			width: 250px;
 			transform: translateX(0%);
 		}
 
-		.components-view__sidebar-content {
+		.documentation-view__sidebar-content {
 			transform: translateX(0);
 		}
 
-		.components-view__right-col {
+		.documentation-view__right-col {
 			margin-left: 255px;
 		}
 	}

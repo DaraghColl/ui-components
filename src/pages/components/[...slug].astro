@@ -1,7 +1,7 @@
 ---
 import { CollectionEntry, getCollection } from 'astro:content';
 import BaseHead from '@site-components/base-head/base-head.astro';
-import ComponentsView from '@layouts/components-view/components-view.astro';
+import ComponentsView from '@layouts/documentation-view/documentation-view.astro';
 
 export async function getStaticPaths() {
 	const components = await getCollection('components');
@@ -21,32 +21,7 @@ const { title, description, image, order } = component.data;
 ---
 
 <ComponentsView>
-	<div class="component">
-		<h1 class="component__heading">{title}</h1>
-		<p class="component__description">{description}</p>
-		<div class="component__content">
-			<Content />
-		</div>
-	</div>
+	<h1 class="documentation-view__heading">{title}</h1>
+	<p class="documentation-view__description">{description}</p>
+	<Content />
 </ComponentsView>
-
-<style>
-	.component {
-		color: var(--color-font);
-		padding: var(--spacing-xl) var(--spacing-md);
-		max-width: 999px;
-		margin: 0 auto;
-	}
-
-	.component__heading {
-		font-size: var(--font-xl);
-	}
-
-	.component__description {
-		color: var(--color-font-secondary);
-	}
-
-	.component__content {
-		margin-top: var(--spacing-xl);
-	}
-</style>

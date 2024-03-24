@@ -1,4 +1,14 @@
-/* variables */
+---
+layout: '../../layouts/documentation-view/documentation-view.astro'
+image: '/component-images/dropdown.png'
+order: 2
+---
+
+<h1 class="documentation-view__heading">CSS Variables</h1>
+<p class="documentation-view__description">To get started, add these CSS variables to your prohect</p>
+
+
+```css title="css"
 :root {
 	--color-bg: hsl(0, 0%, 100%);
 	--color-bg-darken: hsl(0, 0%, 98%);
@@ -61,71 +71,4 @@
 	--transition-long: 0.9s;
 }
 
-* {
-	font-family: system-ui;
-	box-sizing: border-box;
-	padding: 0;
-	margin: 0;
-	-webkit-tap-highlight-color: transparent;
-}
-
-body {
-	padding: 0;
-	margin: 0;
-	letter-spacing: 0.1rem;
-	line-height: 1.8;
-	background-color: var(--color-bg);
-}
-
-[data-theme='dark'] body {
-	--color-bg: hsl(229, 27%, 8%);
-	--color-bg-darken: hsl(224, 71%, 4%);
-	--color-font: #e1e1ff;
-	--color-font-secondary: #94a3b8;
-	--border-color-default: hsl(229deg 19.99% 15.19%);
-}
-
-.documentation-view__heading {
-	font-size: var(--font-xl);
-}
-
-.documentation-view__description {
-	color: var(--color-font-secondary);
-	margin-bottom: var(--spacing-lg);
-}
-
-.expressive-code {
-	border: var(--border-sm) solid var(--border-color-default);
-	border-radius: var(--border-md);
-	margin: var(--spacing-lg) 0;
-}
-
-.expressive-code .copy {
-	opacity: 1 !important;
-	margin-top: -2.25rem;
-}
-
-.expressive-code .copy button {
-	opacity: 1 !important;
-	width: 1.8rem !important;
-	height: 1.8rem !important;
-}
-
-.expressive-code .frame .title {
-	border: 0 !important;
-	border-radius: var(--rounded-sm) !important;
-}
-
-.markdown-spacer {
-	padding: var(--spacing-lg) 0;
-}
-
-.code-example-flex {
-	display: flex;
-	justify-content: center;
-}
-
-.code-example-container {
-	max-width: 700px;
-	margin: 0 auto;
-}
+```
