@@ -19,7 +19,6 @@ import ThemeToggle from './theme-toggle.astro';
 			></path>
 		</svg></a
 	>
-	<ThemeToggle transition:persist />
 	<button class="navbar__hamburger" aria-label="open components menu">
 		<svg
 			xmlns="http://www.w3.org/2000/svg"
@@ -35,6 +34,7 @@ import ThemeToggle from './theme-toggle.astro';
 				d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"></path>
 		</svg>
 	</button>
+	<ThemeToggle transition:persist />
 </nav>
 
 <style>
@@ -92,11 +92,11 @@ import ThemeToggle from './theme-toggle.astro';
 
 <script>
 	const toggleMenu = () => {
-		const sidebar = document.querySelector('.components-view__sidebar');
+		const sidebar = document.querySelector('.documentation-view__sidebar');
 		const hamburgerMenu = document.querySelector('.navbar__hamburger');
 
 		function detectCloseClick(event) {
-			if (event.target.classList.contains('components-view-overlay')) {
+			if (event.target.classList.contains('documentation-view-overlay')) {
 				sidebar.setAttribute('data-menu-state', 'closed');
 				document.removeEventListener('click', detectCloseClick);
 			}
