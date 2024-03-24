@@ -1,20 +1,20 @@
-<div class="card-video" id="video_card">
-	<div class="card-video__overlay"></div>
-	<h1 class="card-video__heading">Donegal</h1>
+<div class="video-card" id="video_card">
+	<div class="video-card__overlay"></div>
+	<h1 class="video-card__heading">Donegal</h1>
 	<video playsinline muted loop id="video">
-		<source src="/card-video.mp4" type="video/webm" />
+		<source src="/video-card.mp4" type="video/mp4" />
 		Your browser does not support the video tag.
 	</video>
 </div>
 
 <style>
-	.card-video {
+	.video-card {
 		position: relative;
 		border-radius: var(--rounded-md);
 		cursor: pointer;
 	}
 
-	.card-video__overlay {
+	.video-card__overlay {
 		position: absolute;
 		width: 100%;
 		height: 100%;
@@ -22,10 +22,16 @@
 		left: 0;
 		right: 0;
 		bottom: 0;
-		background-color: hsla(229, 27%, 8%, 0.4);
+		background-color: hsla(229, 27%, 8%, 0.8);
+		transition: background-color var(--transition-short) ease-in-out;
 	}
 
-	.card-video__heading {
+	.video-card:hover .video-card__overlay {
+		background-color: hsla(229, 27%, 8%, 0.3);
+		transition: background-color var(--transition-short) ease-in-out;
+	}
+
+	.video-card__heading {
 		position: absolute;
 		top: 50%;
 		left: 50%;
@@ -34,28 +40,31 @@
 		font-size: var(--font-xl);
 	}
 
-	.card-video video {
+	.video-card video {
+		display: block;
 		width: 100%;
 		border-radius: var(--rounded-md);
 	}
 
 	@media (min-width: 768px) {
-		.card-video__heading {
+		.video-card__heading {
 			font-size: var(--font-3xl);
 		}
 	}
 </style>
 
 <script lang="js">
-	const videoCard = document.getElementById('video_card');
-	const video = document.getElementById('video');
+	(function videoInit() {
+		const cardVideo = document.getElementById('video_card');
+		const video = document.getElementById('video');
 
-	videoCard.addEventListener('mouseover', () => {
-		video.play();
-	});
+		cardVideo.addEventListener('mouseover', () => {
+			video.play();
+		});
 
-	videoCard.addEventListener('mouseout', () => {
-		video.pause();
-		video.currentTime = 0;
-	});
+		cardVideo.addEventListener('mouseout', () => {
+			video.pause();
+			video.currentTime = 0;
+		});
+	})();
 </script>
