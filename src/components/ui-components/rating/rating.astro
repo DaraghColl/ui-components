@@ -80,15 +80,17 @@
 		transition: var(--transition-short) ease-in-out;
 	}
 
-	.rating__star:hover {
-		transform: translateY(-0.25rem);
-		transition: var(--transition-short) ease-in-out;
-	}
-
 	.rating__star-active {
 		color: gold;
 		fill: gold;
 		animation: star-active 0.5s ease-in forwards;
+	}
+
+	@media (min-width: 768px) {
+		.rating__star:hover {
+			transform: translateY(-0.25rem);
+			transition: var(--transition-short) ease-in-out;
+		}
 	}
 
 	@keyframes star-active {

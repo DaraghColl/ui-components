@@ -87,21 +87,16 @@ import Rating from '@ui-components/rating/rating.astro'
 
 ```css title="css"
 .rating {
-    display: flex;
-    gap: var(--spacing-md);
+	display: flex;
+	gap: var(--spacing-md);
 }
 
 .rating__star {
-    width: 2rem;
-    height: 2rem;
-    color: var(--color-font);
-    cursor: pointer;
-    transition: var(--transition-short) ease-in-out;
-}
-
-.rating__star:hover {
-    transform: translateY(-0.25rem);
-    transition: var(--transition-short) ease-in-out;
+	width: 2rem;
+	height: 2rem;
+	color: var(--color-font);
+	cursor: pointer;
+	transition: var(--transition-short) ease-in-out;
 }
 
 .rating__star-active {
@@ -110,18 +105,25 @@ import Rating from '@ui-components/rating/rating.astro'
 	animation: star-active 0.5s ease-in forwards;
 }
 
+@media (min-width: 768px) {
+	.rating__star:hover {
+		transform: translateY(-0.25rem);
+		transition: var(--transition-short) ease-in-out;
+	}
+}
+
 @keyframes star-active {
-    0% {
-        scale: 0.5;
-    }
+	0% {
+		scale: 0.5;
+	}
 
-    50% {
-        scale: 1.2;
-    }
+	50% {
+		scale: 1.2;
+	}
 
-    100% {
-        scale: 1;
-    }
+	100% {
+		scale: 1;
+	}
 }
 ````
 
