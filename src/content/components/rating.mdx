@@ -105,8 +105,9 @@ import Rating from '@ui-components/rating/rating.astro'
 }
 
 .rating__star-active {
-    color: gold;
-    animation: star-active 0.5s ease-in forwards;
+	color: gold;
+	fill: gold;
+	animation: star-active 0.5s ease-in forwards;
 }
 
 @keyframes star-active {
@@ -128,20 +129,20 @@ import Rating from '@ui-components/rating/rating.astro'
 const stars = document.querySelectorAll('.rating__star');
 
 const removeStars = () => {
-    stars.forEach((star, index) => {
-        star.classList.remove('rating__star-active');
-    });
+	stars.forEach((star, index) => {
+		star.classList.remove('rating__star-active');
+	});
 };
 
 stars.forEach((star, index) => {
-    star.addEventListener('click', (e) => {
-        removeStars();
+	star.addEventListener('click', (e) => {
+		removeStars();
 
-        for (let i = 0; i <= index; i++) {
-            setTimeout(() => {
-                stars[i].classList.add('rating__star-active');
-            }, 200 * i);
-        }
-    });
+		for (let i = 0; i <= index; i++) {
+			setTimeout(() => {
+				stars[i].classList.add('rating__star-active');
+			}, 200 * i);
+		}
+	});
 });
 ```
