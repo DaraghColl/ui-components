@@ -56,28 +56,30 @@ import UserList from '@ui-components/user-list/user-list.astro'
 
 ```css title="css"
 .user-list {
-    display: flex;
+	display: flex;
+	padding: 0 var(--spacing-lg);
 }
 
 .user-list__item {
-    position: relative;
-    margin-left: -0.25rem;
+	position: relative;
+	margin: 0 -1rem;
 }
 
 .user-list__image {
-    max-width: 10rem;
-    max-height: 10rem;
-    width: 100%;
-    object-fit: cover;
-    border-radius: var(--rounded-md);
-    box-shadow: var(--shadow);
-    cursor: pointer;
-    transition: var(--transition-short) ease-in-out;
+	max-width: 10rem;
+	max-height: 10rem;
+	width: 100%;
+	object-fit: cover;
+	border-radius: var(--rounded-md);
+	box-shadow: var(--shadow);
+	aspect-ratio: 1/1;
+	cursor: pointer;
+	transition: var(--transition-short) ease-in-out;
 }
 
 .user-list__image:hover {
-    transform: scale(1.2);
-    transition: var(--transition-short) ease-in-out;
+	transform: scale(1.4);
+	transition: var(--transition-short) ease-in-out;
 }
 ```
 

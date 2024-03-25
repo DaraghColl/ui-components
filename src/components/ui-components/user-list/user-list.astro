@@ -39,11 +39,12 @@
 <style>
 	.user-list {
 		display: flex;
+		padding: 0 var(--spacing-lg);
 	}
 
 	.user-list__item {
 		position: relative;
-		margin-left: -0.25rem;
+		margin: 0 -1rem;
 	}
 
 	.user-list__image {
@@ -53,12 +54,13 @@
 		object-fit: cover;
 		border-radius: var(--rounded-md);
 		box-shadow: var(--shadow);
+		aspect-ratio: 1/1;
 		cursor: pointer;
 		transition: var(--transition-short) ease-in-out;
 	}
 
 	.user-list__image:hover {
-		transform: scale(1.2);
+		transform: scale(1.4);
 		transition: var(--transition-short) ease-in-out;
 	}
 </style>
