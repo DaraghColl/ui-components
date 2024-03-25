@@ -89,11 +89,13 @@ body {
 
 .documentation-view__heading {
 	font-size: var(--font-xl);
+	text-align: center;
 }
 
 .documentation-view__description {
 	color: var(--color-font-secondary);
-	margin-bottom: var(--spacing-lg);
+	margin-bottom: var(--spacing-xl);
+	text-align: center;
 }
 
 .expressive-code {
