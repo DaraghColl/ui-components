@@ -23,7 +23,7 @@ import Navbar from '@site-components/navbar/navbar.astro';
 <style>
 	.documentation-view {
 		min-height: 100vh;
-		padding-top: var(--spacing-xl);
+		padding: var(--spacing-lg);
 	}
 
 	.documentation-view__sidebar {
@@ -52,12 +52,13 @@ import Navbar from '@site-components/navbar/navbar.astro';
 
 	.documentation-view__content {
 		color: var(--color-font);
-		padding: 0 var(--spacing-md) var(--spacing-md) var(--spacing-md);
-		max-width: 999px;
-		margin: 0 auto;
 	}
 
 	@media (min-width: 768px) {
+		.documentation-view {
+			padding: var(--spacing-xl);
+		}
+
 		.documentation-view__sidebar {
 			opacity: 1;
 			width: 250px;
