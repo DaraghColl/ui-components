@@ -18,7 +18,7 @@ import Navbar from '@site-components/navbar/navbar.astro';
 		<span class="landing__js">javascript</span>
 	</h2>
 
-	<a href="/css-variables" class="landing__button">Get Started</a>
+	<a href="/components" class="landing__button">View Components</a>
 </div>
 
 <style>
@@ -56,17 +56,16 @@ import Navbar from '@site-components/navbar/navbar.astro';
 		background-color: var(--color-bg);
 		color: var(--color-font);
 		padding: var(--spacing-sm);
-		border: 1px solid var(--color-bg);
-		border-radius: var(--rounded-sm);
-		box-shadow: var(--shadow);
 		font-size: var(--font-lg);
 		cursor: pointer;
 		margin-top: var(--spacing-lg);
-		text-decoration: none;
+		text-decoration: underline;
+		text-underline-offset: 0.5rem;
 	}
 
 	.landing__button:hover {
 		background-color: var(--color-bg-darken);
+		color: var(--color-accent-lighten);
 	}
 
 	@media (min-width: 768px) {
