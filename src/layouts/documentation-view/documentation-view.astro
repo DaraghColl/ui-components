@@ -35,19 +35,19 @@ import Navbar from '@site-components/navbar/navbar.astro';
 		overflow: scroll;
 		z-index: 15;
 		transform: translateX(-100%);
-		transition: var(--transition-medium) ease-in-out;
+		transition: transform var(--transition-medium) ease-in-out;
 	}
 
 	.documentation-view__sidebar[data-menu-state='open'] {
 		opacity: 1;
 		transform: translateX(0);
-		transition: var(--transition-medium) ease-in-out;
+		transition: transform var(--transition-medium) ease-in-out;
 	}
 
 	.documentation-view__right-col {
 		flex-grow: 1;
 		margin-left: 0;
-		transition: var(--transition-medium) ease-in-out;
+		transition: transform var(--transition-medium) ease-in-out;
 	}
 
 	.documentation-view__content {
