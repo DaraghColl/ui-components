@@ -17,8 +17,8 @@ export default defineConfig({
 					editorActiveTabForeground: '#ffffff',
 					editorActiveTabBackground: 'hsl(245, 58%, 51%)',
 					editorActiveTabIndicatorTopColor: 'transparent',
-					editorBackground: 'hsl(229, 30%, 9%)',
-					editorTabBarBackground: 'hsl(229, 30%, 9%)',
+					editorBackground: 'hsl(229, 30%, 10%)',
+					editorTabBarBackground: 'hsl(229, 30%, 10%)',
 					editorTabBarBorderColor: 'transparent'
 				}
 			},
