@@ -57,6 +57,7 @@ import UserList from '@ui-components/user-list/user-list.astro'
 ```css title="css"
 .user-list {
 	display: flex;
+	justify-content: center;
 	padding: 0 var(--spacing-lg);
 }
 
@@ -66,13 +67,12 @@ import UserList from '@ui-components/user-list/user-list.astro'
 }
 
 .user-list__image {
-	max-width: 10rem;
-	max-height: 10rem;
 	width: 100%;
+	max-width: 8rem;
+	aspect-ratio: 1 / 1;
 	object-fit: cover;
 	border-radius: var(--rounded-md);
 	box-shadow: var(--shadow);
-	aspect-ratio: 1/1;
 	cursor: pointer;
 	transition: var(--transition-short) ease-in-out;
 }
