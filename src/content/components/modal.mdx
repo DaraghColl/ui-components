@@ -1,0 +1,175 @@
+---
+title: 'Modal'
+description: 'Native modal with smooth in/out animation'
+image: '/component-images/login-form.png'
+order: 5
+---
+
+import Modal from '@ui-components/modal/modal.astro'
+
+<div class="code-example-flex" >
+    <Modal />
+</div>
+
+
+<div class="markdown-spacer" />
+
+
+```html title="html"
+<dialog class="modal">
+	<div class="modal__content">
+		<svg
+			xmlns="http://www.w3.org/2000/svg"
+			fill="none"
+			viewBox="0 0 24 24"
+			stroke-width="1.5"
+			stroke="currentColor"
+			class="modal__icon"
+		>
+			<path
+				stroke-linecap="round"
+				stroke-linejoin="round"
+				d="M21 10.5h.375c.621 0 1.125.504 1.125 1.125v2.25c0 .621-.504 1.125-1.125 1.125H21M4.5 10.5h6.75V15H4.5v-4.5ZM3.75 18h15A2.25 2.25 0 0 0 21 15.75v-6a2.25 2.25 0 0 0-2.25-2.25h-15A2.25 2.25 0 0 0 1.5 9.75v6A2.25 2.25 0 0 0 3.75 18Z"
+			></path>
+		</svg>
+
+		<h1 class="modal__title">Battery Below 50%</h1>
+		<p class="modal__description">Turn on Battery Saver Mode to extend device battery?</p>
+		<button class="modal__button" autofocus>Turn On</button>
+	</div>
+</dialog>
+<button class="modal__trigger" id="open__modal">Show the dialog</button>
+````
+
+```css title="css"
+.modal {
+    background-color: var(--color-bg);
+    color: var(--color-font);
+    padding: var(--spacing-md);
+    border-color: transparent;
+    border-radius: var(--rounded-sm);
+    box-shadow: var(--shadow);
+    margin: auto auto; /* aligns modal center when using margin 0 reset in your app */
+}
+
+.modal::backdrop {
+    background-color: hsla(0, 0%, 0%, 0.6);
+    backdrop-filter: blur(3px);
+}
+
+.modal__content {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.modal__icon {
+    align-self: center;
+    width: 2.5rem;
+    height: 2.5rem;
+}
+
+.modal__icon svg {
+    color: var(--color-font);
+}
+
+.modal__button {
+    align-self: flex-end;
+    background-color: var(--color-bg);
+    color: var(--color-font);
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+    padding: var(--spacing-md);
+    margin-top: var(--spacing-lg);
+    border: var(--border-md) solid var(--color-bg);
+    border-radius: var(--rounded-sm);
+    box-shadow: var(--shadow);
+    cursor: pointer;
+}
+
+.modal__button:hover {
+    background-color: var(--color-bg-darken);
+}
+
+.modal__button:focus-visible {
+    outline: var(--border-md) solid var(--color-accent);
+}
+
+.modal-open {
+    animation: modal-open var(--transition-medium) ease-in;
+}
+
+.modal-close {
+    animation: modal-close var(--transition-medium) ease-in;
+}
+
+@keyframes modal-open {
+    from {
+        transform: translateY(-200%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0%);
+        opacity: 1;
+    }
+}
+
+@keyframes modal-close {
+    from {
+        transform: translateY(0%);
+        opacity: 1;
+    }
+    to {
+        transform: translateY(-200%);
+        opacity: 0;
+    }
+}
+
+.modal__trigger {
+    background-color: var(--color-bg);
+    color: var(--color-font);
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+    padding: var(--spacing-md);
+    border: var(--border-md) solid var(--color-bg);
+    border-radius: var(--rounded-sm);
+    box-shadow: var(--shadow);
+    cursor: pointer;
+}
+
+.modal__trigger:hover {
+    background-color: var(--color-bg-darken);
+}
+
+.modal__trigger:focus-visible {
+    outline: var(--border-md) solid var(--color-accent);
+}
+````
+
+
+```js title="js"
+const modal = document.querySelector('.modal') as HTMLDialogElement;
+const showButton = document.querySelector('#open__modal');
+const closeButton = document.querySelector('.modal__button');
+
+showButton.addEventListener('click', () => {
+    modal.classList.add('modal-open');
+    modal.showModal();
+});
+
+closeButton.addEventListener('click', () => {
+    modal.classList.remove('modal-open');
+    modal.classList.add('modal-close');
+
+    modal.addEventListener(
+        'animationend',
+        () => {
+            modal.classList.remove('modal-close');
+            modal.close();
+        },
+        { once: true }
+    );
+});
+```

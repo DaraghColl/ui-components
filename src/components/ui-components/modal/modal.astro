@@ -34,7 +34,7 @@
 	}
 
 	.modal::backdrop {
-		background-color: rgba(0, 0, 0, 0.6);
+		background-color: hsla(0, 0%, 0%, 0.6);
 		backdrop-filter: blur(3px);
 	}
 
@@ -63,7 +63,7 @@
 		gap: var(--spacing-md);
 		padding: var(--spacing-md);
 		margin-top: var(--spacing-lg);
-		border: 1px solid var(--color-bg);
+		border: var(--border-md) solid var(--color-bg);
 		border-radius: var(--rounded-sm);
 		box-shadow: var(--shadow);
 		cursor: pointer;
@@ -74,15 +74,15 @@
 	}
 
 	.modal__button:focus-visible {
-		outline: 2px solid var(--color-accent);
+		outline: var(--border-md) solid var(--color-accent);
 	}
 
 	.modal-open {
-		animation: modal-open 0.5s ease-in;
+		animation: modal-open var(--transition-medium) ease-in;
 	}
 
 	.modal-close {
-		animation: modal-close 0.5s ease-in;
+		animation: modal-close var(--transition-medium) ease-in;
 	}
 
 	@keyframes modal-open {
@@ -114,7 +114,7 @@
 		align-items: center;
 		gap: var(--spacing-md);
 		padding: var(--spacing-md);
-		border: 1px solid var(--color-bg);
+		border: var(--border-md) solid var(--color-bg);
 		border-radius: var(--rounded-sm);
 		box-shadow: var(--shadow);
 		cursor: pointer;
@@ -125,31 +125,33 @@
 	}
 
 	.modal__trigger:focus-visible {
-		outline: 2px solid var(--color-accent);
+		outline: var(--border-md) solid var(--color-accent);
 	}
 </style>
 
-<script>
-	const modal = document.querySelector('.modal') as HTMLDialogElement;
-	const showButton = document.querySelector('#open__modal');
-	const closeButton = document.querySelector('.modal__button');
+<script lang="js">
+	(function modalInit() {
+		const modal = document.querySelector('.modal');
+		const showButton = document.querySelector('#open__modal');
+		const closeButton = document.querySelector('.modal__button');
 
-	showButton.addEventListener('click', () => {
-		modal.classList.add('modal-open');
-		modal.showModal();
-	});
+		showButton.addEventListener('click', () => {
+			modal.classList.add('modal-open');
+			modal.showModal();
+		});
 
-	closeButton.addEventListener('click', () => {
-		modal.classList.remove('modal-open');
-		modal.classList.add('modal-close');
+		closeButton.addEventListener('click', () => {
+			modal.classList.remove('modal-open');
+			modal.classList.add('modal-close');
 
-		modal.addEventListener(
-			'animationend',
-			() => {
-				modal.classList.remove('modal-close');
-				modal.close();
-			},
-			{ once: true }
-		);
-	});
+			modal.addEventListener(
+				'animationend',
+				() => {
+					modal.classList.remove('modal-close');
+					modal.close();
+				},
+				{ once: true }
+			);
+		});
+	})();
 </script>

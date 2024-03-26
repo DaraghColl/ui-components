@@ -45,7 +45,7 @@ import LikeButton from '@ui-components/like-button/like-button.astro'
     background-color: var(--color-bg);
     color: var(--color-font);
     padding: var(--spacing-md);
-    border: 1px solid var(--color-bg);
+    border: var(--border-sm) solid var(--color-bg);
     border-radius: var(--rounded-sm);
     box-shadow: var(--shadow);
     cursor: pointer;
@@ -56,7 +56,7 @@ import LikeButton from '@ui-components/like-button/like-button.astro'
 }
 
 .like-button:focus-visible {
-    outline: 2px solid var(--color-accent);
+    outline: var(--border-md) solid var(--color-accent);
 }
 
 .like-button__seperator {

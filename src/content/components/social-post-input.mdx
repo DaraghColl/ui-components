@@ -73,79 +73,79 @@ import SocialPostInput from '@ui-components/social-post-input/social-post-input.
 
 ```css title="css"
 .social-post-input {
-    background-color: var(--color-bg);
-    color: var(--color-font);
-    width: 100%;
-    padding: var(--spacing-lg);
-    border-radius: var(--rounded-sm);
-    box-shadow: var(--shadow);
+	background-color: var(--color-bg);
+	color: var(--color-font);
+	width: 100%;
+	padding: var(--spacing-lg);
+	border-radius: var(--rounded-sm);
+	box-shadow: var(--shadow);
 }
 
 .social-post-input__header {
-    display: flex;
-    gap: var(--spacing-md);
+	display: flex;
+	gap: var(--spacing-md);
 }
 
 .social-post-input__image {
-    display: flex;
-    align-items: center;
+	display: flex;
+	align-items: center;
 }
 
 .social-post-input__image img {
-    width: 3rem;
-    height: 3rem;
-    border: 2px solid var(--color-accent-lighten);
-    border-radius: var(--rounded-full);
-    object-fit: cover;
+	width: 3rem;
+	height: 3rem;
+	border: var(--border-md) solid var(--color-accent-lighten);
+	border-radius: var(--rounded-full);
+	object-fit: cover;
 }
 
 .social-post-input input {
-    background-color: inherit;
-    color: var(--color-font);
-    width: 100%;
-    border: none;
-    outline: none;
+	background-color: inherit;
+	color: var(--color-font);
+	width: 100%;
+	border: none;
+	outline: none;
 }
 
 .social-post-input input::placeholder {
-    color: var(--color-font-secondary);
+	color: var(--color-font-secondary);
 }
 
 .social-post-input__footer {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: var(--spacing-lg);
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-top: var(--spacing-lg);
 }
 
 .social-post-input__attachments {
-    display: flex;
-    gap: var(--spacing-md);
+	display: flex;
+	gap: var(--spacing-md);
 }
 
 .social-post-input button {
-    background-color: inherit;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: var(--spacing-sm);
-    border: none;
-    cursor: pointer;
+	background-color: inherit;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	gap: var(--spacing-sm);
+	border: none;
+	cursor: pointer;
 }
 
 .social-post-input button svg {
-    width: 1.3rem;
-    color: var(--color-font);
-    fill: var(--color-bg);
-    transition: color var(--transition-short) ease-in-out;
+	width: 1.3rem;
+	color: var(--color-font);
+	fill: var(--color-bg);
+	transition: color var(--transition-short) ease-in-out;
 }
 
 .social-post-input button:hover svg {
-    color: var(--color-accent-lighten);
-    transition: color var(--transition-short) ease-in;
+	color: var(--color-accent-lighten);
+	transition: color var(--transition-short) ease-in;
 }
 
 .social-post-input button:focus-visible {
-    outline: 2px solid var(--color-accent);
+	outline: var(--border-md) solid var(--color-accent);
 }
 ````

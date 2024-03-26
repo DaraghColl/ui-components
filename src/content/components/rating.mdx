@@ -131,7 +131,7 @@ import Rating from '@ui-components/rating/rating.astro'
 	const stars = document.querySelectorAll('.rating__star');
 
 	const removeStars = () => {
-		stars.forEach((star, index) => {
+		stars.forEach((star) => {
 			star.classList.remove('rating__star-active');
 		});
 	};
