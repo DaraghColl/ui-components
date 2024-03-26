@@ -15,7 +15,11 @@ export default defineConfig({
 				frames: {
 					editorActiveTabIndicatorBottomColor: 'transparent',
 					editorActiveTabForeground: '#ffffff',
-					editorActiveTabBackground: '#3730a3'
+					editorActiveTabBackground: 'hsl(245, 58%, 51%)',
+					editorActiveTabIndicatorTopColor: 'transparent',
+					editorBackground: 'hsl(229, 30%, 9%)',
+					editorTabBarBackground: 'hsl(229, 30%, 9%)',
+					editorTabBarBorderColor: 'transparent'
 				}
 			},
 			themes: ['material-theme-ocean']
