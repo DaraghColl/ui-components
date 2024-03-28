@@ -41,13 +41,18 @@ import VideoCard from '@ui-components/video-card/video-card.astro'
     right: 0;
     bottom: 0;
     background-color: hsla(229, 27%, 8%, 0.8);
-	  border-radius: var(--rounded-md);
+    border-radius: var(--rounded-md);
     transition: background-color var(--transition-short) ease-in-out;
 }
 
 .video-card:hover .video-card__overlay {
     background-color: hsla(229, 27%, 8%, 0.3);
     transition: background-color var(--transition-short) ease-in-out;
+}
+
+.video-card:hover .video-card__heading {
+    opacity: 0.2;
+    transition: opacity var(--transition-short) ease-in-out;
 }
 
 .video-card__heading {
@@ -57,6 +62,7 @@ import VideoCard from '@ui-components/video-card/video-card.astro'
     transform: translate(-50%, -50%);
     color: white;
     font-size: var(--font-xl);
+    transition: opacity var(--transition-short) ease-in-out;
 }
 
 .video-card video {

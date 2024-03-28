@@ -31,6 +31,11 @@
 		transition: background-color var(--transition-short) ease-in-out;
 	}
 
+	.video-card:hover .video-card__heading {
+		opacity: 0.2;
+		transition: opacity var(--transition-short) ease-in-out;
+	}
+
 	.video-card__heading {
 		position: absolute;
 		top: 50%;
@@ -38,6 +43,7 @@
 		transform: translate(-50%, -50%);
 		color: white;
 		font-size: var(--font-xl);
+		transition: opacity var(--transition-short) ease-in-out;
 	}
 
 	.video-card video {
