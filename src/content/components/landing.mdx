@@ -5,14 +5,11 @@ image: '/component-images/landing.png'
 order: 10
 ---
 
-
-import Landing from '@ui-components/landing/landing.astro'
+import Landing from '@ui-components/landing/landing.astro';
 
 <Landing />
 
-
 <div class="markdown-spacer" />
-
 
 ```html title="html"
 <div class="landing">
@@ -26,67 +23,67 @@ import Landing from '@ui-components/landing/landing.astro'
 	</div>
 	<img src="/donegal.jpg" class="landing__image" />
 </div>
-````
+```
 
 ```css title="css"
 .landing {
-    display: flex;
-    flex-direction: column-reverse;
-    align-items: center;
-    gap: var(--spacing-lg);
+	display: flex;
+	flex-direction: column-reverse;
+	align-items: center;
+	gap: var(--spacing-lg);
 }
 
 .landing__content {
-    display: flex;
-    flex-direction: column;
-    gap: var(--spacing-lg);
-    width: 100%;
+	display: flex;
+	flex-direction: column;
+	gap: var(--spacing-lg);
+	width: 100%;
 }
 
 .landing__description {
-    color: var(--color-font-secondary);
-    font-size: var(--font-sm);
+	color: var(--color-font-secondary);
+	font-size: var(--font-sm);
 }
 
 .landing__button {
-    display: flex;
-    align-self: self-start;
-    gap: var(--spacing-md);
-    background-color: var(--color-accent);
-    color: white;
-    padding: var(--spacing-md);
-    border: var(--border-sm) solid var(--color-accent);
-    border-radius: var(--rounded-sm);
-    box-shadow: var(--shadow);
-    font-size: var(--font-md);
-    cursor: pointer;
+	display: flex;
+	align-self: self-start;
+	gap: var(--spacing-md);
+	background-color: var(--color-accent);
+	color: white;
+	padding: var(--spacing-md);
+	border: var(--border-sm) solid var(--color-accent);
+	border-radius: var(--rounded-sm);
+	box-shadow: var(--shadow);
+	font-size: var(--font-md);
+	cursor: pointer;
 }
 
 .landing__button:hover {
-    background-color: var(--color-accent-darken);
+	background-color: var(--color-accent-darken);
 }
 
 .landing__button:focus-visible {
-    outline: 2px solid var(--color-accent);
+	outline: 2px solid var(--color-accent);
 }
 
 .landing__image {
-    width: 100%;
-    object-fit: cover;
-    border-radius: var(--rounded-md);
+	width: 100%;
+	object-fit: cover;
+	border-radius: var(--rounded-md);
 }
 
 @media (min-width: 768px) {
-    .landing {
-        flex-direction: row;
-    }
+	.landing {
+		flex-direction: row;
+	}
 
-    .landing__content {
-        width: 50%;
-    }
+	.landing__content {
+		width: 50%;
+	}
 
-    .landing__image {
-        width: 50%;
-    }
+	.landing__image {
+		width: 50%;
+	}
 }
-````
+```

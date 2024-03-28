@@ -5,84 +5,81 @@ image: '/component-images/user-card.png'
 order: 7
 ---
 
-import UserCard from '@ui-components/user-card/user-card.astro'
-
+import UserCard from '@ui-components/user-card/user-card.astro';
 
 <div class="code-example-flex">
-    <UserCard />
+	<UserCard />
 </div>
-
 
 <div class="markdown-spacer" />
 
-
 ```html title="html"
-<div class='user-card'>
+<div class="user-card">
 	<img
-		src='https://images.pexels.com/photos/2379005/pexels-photo-2379005.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
-		class='user-card__image'
-		alt='user profile image'
+		src="https://images.pexels.com/photos/2379005/pexels-photo-2379005.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+		class="user-card__image"
+		alt="user profile image"
 	/>
-	<div class='user-card__name'>
-		<span class='user-card__full-name'>Daragh Coll</span>
-		<span class='user-card__user-name'>@dcoll</span>
+	<div class="user-card__name">
+		<span class="user-card__full-name">Daragh Coll</span>
+		<span class="user-card__user-name">@dcoll</span>
 	</div>
 </div>
-````
+```
 
 ```css title="css"
 .user-card {
-    display: flex;
-    align-items: center;
-    gap: var(--spacing-md);
-    background-color: var(--color-bg);
-    color: var(--color-font);
-    width: fit-content;
-    padding: var(--spacing-md);
-    border: var(--border-sm) solid var(--color-bg);
-    border-radius: var(--rounded-sm);
-    box-shadow: var(--shadow);
-    cursor: pointer;
-    transition: transform var(--transition-short) ease-in-out;
+	display: flex;
+	align-items: center;
+	gap: var(--spacing-md);
+	background-color: var(--color-bg);
+	color: var(--color-font);
+	width: fit-content;
+	padding: var(--spacing-md);
+	border: var(--border-sm) solid var(--color-bg);
+	border-radius: var(--rounded-sm);
+	box-shadow: var(--shadow);
+	cursor: pointer;
+	transition: transform var(--transition-short) ease-in-out;
 }
 
 .user-card__image {
-    width: 3rem;
-    height: 3rem;
-    border-radius: var(--rounded-full);
-    object-fit: cover;
-    border: var(--border-lg) solid var(--color-accent);
-    transition:
-        scale var(--transition-short) ease-in-out,
-        rotate var(--transition-short) ease-in-out;
+	width: 3rem;
+	height: 3rem;
+	border-radius: var(--rounded-full);
+	object-fit: cover;
+	border: var(--border-lg) solid var(--color-accent);
+	transition:
+		scale var(--transition-short) ease-in-out,
+		rotate var(--transition-short) ease-in-out;
 }
 
 .user-card__name {
-    display: flex;
-    flex-direction: column;
+	display: flex;
+	flex-direction: column;
 }
 
 .user-card__full-name {
-    gap: var(--spacing-xs);
-    font-size: var(--font-base);
-    font-weight: 600;
+	gap: var(--spacing-xs);
+	font-size: var(--font-base);
+	font-weight: 600;
 }
 
 .user-card__user-name {
-    font-size: var(--font-xs);
-    font-weight: normal;
-    color: var(--color-font-secondary);
+	font-size: var(--font-xs);
+	font-weight: normal;
+	color: var(--color-font-secondary);
 }
 
 .user-card:hover {
-    transform: translateY(-0.1rem);
-    background-color: var(--color-bg-darken);
-    transition: transform var(--transition-short) ease-in-out;
+	transform: translateY(-0.1rem);
+	background-color: var(--color-bg-darken);
+	transition: transform var(--transition-short) ease-in-out;
 }
 
 .user-card:hover .user-card__image {
-    scale: 1.05;
-    rotate: 10deg;
-    transition: all var(--transition-short) ease-in-out;
+	scale: 1.05;
+	rotate: 10deg;
+	transition: all var(--transition-short) ease-in-out;
 }
-````
+```

@@ -5,15 +5,13 @@ image: '/component-images/rating.png'
 order: 3
 ---
 
-import Rating from '@ui-components/rating/rating.astro'
+import Rating from '@ui-components/rating/rating.astro';
 
 <div class="code-example-flex">
-    <Rating />
+	<Rating />
 </div>
 
-
 <div class="markdown-spacer" />
-
 
 ```html title="html"
 <div class="rating">
@@ -83,7 +81,7 @@ import Rating from '@ui-components/rating/rating.astro'
 		></path>
 	</svg>
 </div>
-````
+```
 
 ```css title="css"
 .rating {
@@ -125,26 +123,26 @@ import Rating from '@ui-components/rating/rating.astro'
 		fill: gold;
 	}
 }
-````
+```
 
 ```js title="js"
-	const stars = document.querySelectorAll('.rating__star');
+const stars = document.querySelectorAll('.rating__star');
 
-	const removeStars = () => {
-		stars.forEach((star) => {
-			star.classList.remove('rating__star-active');
-		});
-	};
-
-	stars.forEach((star, index) => {
-		star.addEventListener('click', (e) => {
-			removeStars();
-
-			for (let i = 0; i <= index; i++) {
-				setTimeout(() => {
-					stars[i].classList.add('rating__star-active');
-				}, 200 * i);
-			}
-		});
+const removeStars = () => {
+	stars.forEach((star) => {
+		star.classList.remove('rating__star-active');
 	});
+};
+
+stars.forEach((star, index) => {
+	star.addEventListener('click', (e) => {
+		removeStars();
+
+		for (let i = 0; i <= index; i++) {
+			setTimeout(() => {
+				stars[i].classList.add('rating__star-active');
+			}, 200 * i);
+		}
+	});
+});
 ```

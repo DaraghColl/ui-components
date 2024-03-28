@@ -5,130 +5,128 @@ image: '/component-images/login-form.png'
 order: 8
 ---
 
-import LoginForm from '@ui-components/login-form/login-form.astro'
+import LoginForm from '@ui-components/login-form/login-form.astro';
 
-<div class="code-example-container" >
-    <LoginForm />
+<div class="code-example-container">
+	<LoginForm />
 </div>
-
 
 <div class="markdown-spacer" />
 
-
 ```html title="html"
-<form action='#' class='form'>
-	<h1 class='form__heading'>Sign in</h1>
+<form action="#" class="form">
+	<h1 class="form__heading">Sign in</h1>
 
-	<div class='form__items'>
-		<div class='form__group form__group--col'>
-			<label for='email' class='form__label'>Email</label>
-			<input type='email' name='email' placeholder='name@gmail.com' class='form__input' />
+	<div class="form__items">
+		<div class="form__group form__group--col">
+			<label for="email" class="form__label">Email</label>
+			<input type="email" name="email" placeholder="name@gmail.com" class="form__input" />
 		</div>
 
-		<div class='form__group form__group--col'>
-			<label for='password' class='form__label'>Password</label>
-			<input type='text' name='password' placeholder='**********' class='form__input' />
+		<div class="form__group form__group--col">
+			<label for="password" class="form__label">Password</label>
+			<input type="text" name="password" placeholder="**********" class="form__input" />
 		</div>
 
-		<div class='form__group form__group--row'>
-			<input type='checkbox' id='remember' />
-			<label for='remember' class='form__label'>Remember me</label>
+		<div class="form__group form__group--row">
+			<input type="checkbox" id="remember" />
+			<label for="remember" class="form__label">Remember me</label>
 		</div>
 
-		<button class='form__button'>Sign In</button>
-		<a href='#' class='form__forgot-password'>Forgot password?</a>
+		<button class="form__button">Sign In</button>
+		<a href="#" class="form__forgot-password">Forgot password?</a>
 	</div>
 </form>
-````
+```
 
 ```css title="css"
 .form {
-    background-color: var(--color-bg);
-    padding: var(--spacing-lg);
-    border-radius: var(--rounded-sm);
-    box-shadow: var(--shadow);
+	background-color: var(--color-bg);
+	padding: var(--spacing-lg);
+	border-radius: var(--rounded-sm);
+	box-shadow: var(--shadow);
 }
 
 .form__heading {
-    color: var(--color-font);
-    text-align: center;
+	color: var(--color-font);
+	text-align: center;
 }
 
 .form__items {
-    display: flex;
-    flex-direction: column;
-    gap: var(--spacing-md);
+	display: flex;
+	flex-direction: column;
+	gap: var(--spacing-md);
 }
 
 .form__group {
-    width: 100%;
-    display: flex;
-    gap: var(--spacing-md);
+	width: 100%;
+	display: flex;
+	gap: var(--spacing-md);
 }
 
 .form__group--col {
-    flex-direction: column;
+	flex-direction: column;
 }
 
 .form__group--row {
-    flex-direction: row;
+	flex-direction: row;
 }
 
 .form__label {
-    color: var(--color-font);
+	color: var(--color-font);
 }
 
 .form__input {
-    background-color: var(--color-bg);
-    color: var(--color-font);
-    width: 100%;
-    padding: var(--spacing-md);
-    border: var(--border-sm) solid var(--color-bg);
-    border-radius: var(--rounded-sm);
-    border: var(--border-sm) solid var(--border-color-default);
+	background-color: var(--color-bg);
+	color: var(--color-font);
+	width: 100%;
+	padding: var(--spacing-md);
+	border: var(--border-sm) solid var(--color-bg);
+	border-radius: var(--rounded-sm);
+	border: var(--border-sm) solid var(--border-color-default);
 }
 
 .form__input::placeholder {
-    color: var(--color-font-secondary);
+	color: var(--color-font-secondary);
 }
 
 input[type='checkbox'] {
-    accent-color: var(--color-accent);
+	accent-color: var(--color-accent);
 }
 
 .form__input:focus-visible {
-    outline: var(--border-md) solid var(--color-accent);
+	outline: var(--border-md) solid var(--color-accent);
 }
 
 .form__button {
-    background-color: var(--color-accent);
-    color: white;
-    padding: var(--spacing-md);
-    margin-top: var(--spacing-lg);
-    border: var(--border-sm) solid var(--color-bg);
-    border-radius: var(--rounded-sm);
-    box-shadow: var(--shadow);
-    cursor: pointer;
-    text-align: center;
-    font-size: var(--font-base);
+	background-color: var(--color-accent);
+	color: white;
+	padding: var(--spacing-md);
+	margin-top: var(--spacing-lg);
+	border: var(--border-sm) solid var(--color-bg);
+	border-radius: var(--rounded-sm);
+	box-shadow: var(--shadow);
+	cursor: pointer;
+	text-align: center;
+	font-size: var(--font-base);
 }
 
 .form__button:hover {
-    background-color: var(--color-accent-darken);
+	background-color: var(--color-accent-darken);
 }
 
 .form__forgot-password {
-    color: var(--color-font);
-    text-align: center;
-    text-decoration: none;
+	color: var(--color-font);
+	text-align: center;
+	text-decoration: none;
 }
 
 .form__forgot-password:hover {
-    text-decoration: underline var(--color-accent);
-    text-underline-offset: 0.25em;
+	text-decoration: underline var(--color-accent);
+	text-underline-offset: 0.25em;
 }
 
 .form__forgot-password:focus-visible {
-    outline: var(--border-md) solid var(--color-accent);
+	outline: var(--border-md) solid var(--color-accent);
 }
-````
+```
