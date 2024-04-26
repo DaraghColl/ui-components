@@ -29,6 +29,7 @@
 		overflow: scroll;
 		scroll-behavior: smooth;
 		scroll-snap-type: x mandatory;
+		scrollbar-width: none;
 	}
 
 	.slider::-webkit-scrollbar {
@@ -36,7 +37,7 @@
 	}
 
 	.slider__slide {
-		width: 80%;
+		min-width: 90%;
 		border-radius: var(--rounded-lg);
 		object-fit: cover;
 		scroll-snap-align: center;

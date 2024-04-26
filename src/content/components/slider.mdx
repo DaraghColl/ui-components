@@ -46,6 +46,7 @@ import Slider from '@ui-components/slider/slider.astro';
 	overflow: scroll;
 	scroll-behavior: smooth;
 	scroll-snap-type: x mandatory;
+	scrollbar-width: none;
 }
 
 .slider::-webkit-scrollbar {
@@ -53,8 +54,7 @@ import Slider from '@ui-components/slider/slider.astro';
 }
 
 .slider__slide {
-	width: 80%;
-	min-width: 80%;
+	min-width: 90%;
 	border-radius: var(--rounded-lg);
 	object-fit: cover;
 	scroll-snap-align: center;
