@@ -12,23 +12,23 @@ interface Status {
 
 const statusIconMap: Record<ProfileStatus, Status> = {
   available: {
-    icon: <CheckCircle size={30} />,
+    icon: <CheckCircle className="h-4 w-4 lg:h-7 lg:w-7" />,
     color: 'bg-green-500',
   },
   busy: {
-    icon: <Circle size={30} />,
+    icon: <Circle className="h-4 w-4 lg:h-7 lg:w-7" />,
     color: 'bg-red-500',
   },
   'do not disturb': {
-    icon: <CircleMinus size={30} />,
+    icon: <CircleMinus className="h-4 w-4 lg:h-7 lg:w-7" />,
     color: 'bg-red-500',
   },
   'be right back': {
-    icon: <Clock size={30} />,
+    icon: <Clock className="h-4 w-4 lg:h-7 lg:w-7" />,
     color: 'bg-amber-500',
   },
   away: {
-    icon: <CircleX size={30} />,
+    icon: <CircleX className="h-4 w-4 lg:h-7 lg:w-7" />,
     color: 'bg-neutral-300',
   },
 };
@@ -65,7 +65,7 @@ const ProfileStateSelector = () => {
   return (
     <div ref={dropdownRef} className="relative flex flex-col items-center">
       <motion.button
-        className="relative h-32 w-32 cursor-pointer"
+        className="relative aspect-square w-20 cursor-pointer sm:w-24 md:w-28 lg:w-32"
         whileHover={{ scale: 1.01 }}
         whileTap={{ scale: 0.99 }}
         transition={{ type: 'spring', stiffness: 300, damping: 20 }}
@@ -80,7 +80,7 @@ const ProfileStateSelector = () => {
         <AnimatePresence mode="wait">
           <motion.div
             key={activeStatus}
-            className={`absolute right-2 bottom-0 rounded-full p-1 text-black ${statusIconMap[activeStatus].color}`}
+            className={`absolute right-1 bottom-0 rounded-full p-0.5 text-black sm:right-1.5 sm:p-1 md:right-2 ${statusIconMap[activeStatus].color}`}
             initial={{ opacity: 0, scale: 0.5, y: 20 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 1, y: 20 }}
@@ -94,7 +94,7 @@ const ProfileStateSelector = () => {
       <AnimatePresence>
         {showStatusDropdown && (
           <motion.div
-            className="absolute top-36 left-1/2 z-10 flex min-w-max -translate-x-1/2 flex-col gap-1 rounded-lg bg-white p-2 shadow-lg dark:bg-neutral-900"
+            className="absolute top-[calc(100%+1rem)] left-1/2 z-10 flex min-w-max -translate-x-1/2 flex-col gap-1 rounded-lg bg-white p-2 shadow-lg dark:bg-neutral-900"
             initial={{ opacity: 0, scale: 0.95, y: -10 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95, y: -10 }}
